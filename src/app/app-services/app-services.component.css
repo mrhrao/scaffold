@@ -1,0 +1,52 @@
+.container-fluid{
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-top: 132px;
+}
+.allSectionPadding{
+    padding-top: 132px;
+}
+.lastSectionPadding{
+    padding-bottom: 132px;
+}
+.posSection{
+    width: 81%;
+    margin: 0 auto;
+}
+.posImage{
+    width: 38%;
+    float: left;
+}
+.posTxt{
+    width: 62%;
+    float: left;
+}
+.bitexCardSection{
+    width: 81%;
+    margin: 0 auto;
+}
+.bitexCardTxt{
+    width: 62%;
+    float: left;
+}
+.bitexCardImage{
+    width: 38%;
+    float: left;
+    text-align: right;
+    
+}
+.cardTop{
+    padding-top: 106px;
+}
+/*.serviceImage{
+    width: 330px;
+    height: 270px;
+}*/
+h2{
+    font-family: proximaNova-font;
+    font-size: 40px;
+}
+p{
+    font-family: proximaNova-font-light;
+    font-size: 30px;
+}

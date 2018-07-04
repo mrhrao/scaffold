@@ -1,0 +1,951 @@
+<div class="dashboard-container container-fluid pad-0">
+        <div class="tbCont">
+            <div class="tabs">
+                <hr class="horizontalLine">
+                <tabset type="pills">
+                    <tab heading="QUICK MODE">
+    
+                        <div class="contentContainer">
+                            <div class="row pad-0">
+                                <div class="heading"></div>
+                                <div class="col-sm-12 bgHead">
+    
+                                    <div id="tv_chart_container"></div>
+                                </div>
+                            </div>
+                            <div class="row pad-0">
+                                <div class="col-sm-12  border-line-box">
+                                    <div class="heading">
+                                        <label>QUICK MODE</label>
+                                        <div class="pull-right upDownValues">
+                                            <img class="img-responsive logoImage" src="../../assets/images/bitcoinImage.png">
+                                            <label>1= Y 1104949.6</label>
+                                        </div>
+                                    </div>
+                                    <div class="row margin0 ">
+                                        <div class=" balanceContainer pad-0 pull-right ">
+                                            <div class="dropdown show drpdwon">
+                                                <select placeholder="BTC" name="cryptoCurrency" class="form-control selectBox" [(ngModel)]="currency.crypto" (change)="showCryptoCurrencyPair()">
+                                                    <option [value]="undefined" disabled>BTC</option>
+                                                    <option class="dropdownOptions" *ngFor="let data of showCurrencies" [value]="data.currencyAbbreviation">{{data.currencyAbbreviation}}</option>
+                                                </select>
+                                            </div>
+                                            <div class="dropdown show whiteBG">
+                                                <select placeholder="BTC" name="cryptoCurrency" class="form-control selectBox" [(ngModel)]="currency.fiat" (change)="showFiatCurrencyPair()">
+                                                    <option [value]="undefined" disabled>INR</option>
+                                                    <option class="dropdownOptions" *ngFor="let data of showFiatCurrency" [value]="data.currencyAbbreviation">{{data.currencyAbbreviation}}</option>
+                                                </select>
+                                            </div>
+                                        </div>
+    
+                                    </div>
+                                    <div class="row margin0">
+                                        <div class="col-sm-12 text-center">
+                                            <div class="loader-backdrop width-100" *ngIf="spinner">
+                                                <div class="loader"></div>
+                                            </div>
+                                            <div class="coloumnContainer inline-flex mediaCls">
+                                                <div class="col-sm-4 box-1 activeCls">
+                                                    <div class="amountBox">
+                                                        <label>100 {{currencySelected.fiat}}</label>
+                                                    </div>
+                                                    <div class="text-labels">
+                                                        <label>0.0164</label>
+                                                        <br />
+                                                        <label class="semiBold">{{currencySelected.crypto}}</label>
+                                                    </div>
+                                                    <div class="button-labels">
+                                                        <button class="btn redBtn" type="button">BUY</button>
+                                                        <button class="btn blueBtn" type="button">SELL</button>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4 box-1">
+                                                    <div class="amountBox">
+                                                        <label>200 {{currencySelected.fiat}}</label>
+                                                    </div>
+                                                    <div class="text-labels">
+                                                        <label>0.0164</label>
+                                                        <br />
+                                                        <label class="semiBold">{{currencySelected.crypto}}</label>
+                                                    </div>
+                                                    <div class="button-labels">
+                                                        <button class="btn redBtn" type="button">BUY</button>
+                                                        <button class="btn blueBtn" type="button">SELL</button>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4 box-1">
+                                                    <div class="amountBox">
+                                                        <label>500 {{currencySelected.fiat}}</label>
+                                                    </div>
+                                                    <div class="text-labels">
+                                                        <label>0.0164</label>
+                                                        <br />
+                                                        <label class="semiBold">{{currencySelected.crypto}}</label>
+                                                    </div>
+                                                    <div class="button-labels">
+                                                        <button class="btn redBtn" type="button">BUY</button>
+                                                        <button class="btn blueBtn" type="button">SELL</button>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4 box-1">
+                                                    <div class="amountBox">
+                                                        <label>700 {{currencySelected.fiat}}</label>
+                                                    </div>
+                                                    <div class="text-labels">
+                                                        <label>0.0164</label>
+                                                        <br />
+                                                        <label class="semiBold">{{currencySelected.crypto}}</label>
+                                                    </div>
+                                                    <div class="button-labels">
+                                                        <button class="btn redBtn" type="button">BUY</button>
+                                                        <button class="btn blueBtn" type="button">SELL</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+    
+                                </div>
+                            </div>
+                            <div class="row margin0 pad-10">
+                                <div class="col-sm-12 pad-0 border-line-box">
+                                    <div class="heading">
+                                        <label>TRADE HISTORY</label>
+                                    </div>
+                                    <div class="table-col tradeHistory">
+                                        <table class="table table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">S.NO</th>
+                                                    <th scope="col">Date/Time</th>
+                                                    <th scope="col">ID</th>
+                                                    <th scope="col">Symbol</th>
+                                                    <th scope="col">Type</th>
+                                                    <th scope="col">Status</th>
+                                                    <th scope="col">Quantity</th>
+                                                    <th scope="col">Price</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Mark</td>
+                                                    <td>Otto</td>
+                                                    <td>@mdo</td>
+                                                    <td>Mark</td>
+                                                    <td>Otto</td>
+                                                    <td>@mdo</td>
+                                                    <td>Mark</td>
+                                                    <td>Otto</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Mark</td>
+                                                    <td>Otto</td>
+                                                    <td>@mdo</td>
+                                                    <td>Mark</td>
+                                                    <td>Otto</td>
+                                                    <td>@mdo</td>
+                                                    <td>Mark</td>
+                                                    <td>Otto</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Mark</td>
+                                                    <td>Otto</td>
+                                                    <td>@mdo</td>
+                                                    <td>Mark</td>
+                                                    <td>Otto</td>
+                                                    <td>@mdo</td>
+                                                    <td>Mark</td>
+                                                    <td>Otto</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Mark</td>
+                                                    <td>Otto</td>
+                                                    <td>@mdo</td>
+                                                    <td>Mark</td>
+                                                    <td>Otto</td>
+                                                    <td>@mdo</td>
+                                                    <td>Mark</td>
+                                                    <td>Otto</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Mark</td>
+                                                    <td>Otto</td>
+                                                    <td>@mdo</td>
+                                                    <td>Mark</td>
+                                                    <td>Otto</td>
+                                                    <td>@mdo</td>
+                                                    <td>Mark</td>
+                                                    <td>Otto</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Mark</td>
+                                                    <td>Otto</td>
+                                                    <td>@mdo</td>
+                                                    <td>Mark</td>
+                                                    <td>Otto</td>
+                                                    <td>@mdo</td>
+                                                    <td>Mark</td>
+                                                    <td>Otto</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Mark</td>
+                                                    <td>Otto</td>
+                                                    <td>@mdo</td>
+                                                    <td>Mark</td>
+                                                    <td>Otto</td>
+                                                    <td>@mdo</td>
+                                                    <td>Mark</td>
+                                                    <td>Otto</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Mark</td>
+                                                    <td>Otto</td>
+                                                    <td>@mdo</td>
+                                                    <td>Mark</td>
+                                                    <td>Otto</td>
+                                                    <td>@mdo</td>
+                                                    <td>Mark</td>
+                                                    <td>Otto</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Mark</td>
+                                                    <td>Otto</td>
+                                                    <td>@mdo</td>
+                                                    <td>Mark</td>
+                                                    <td>Otto</td>
+                                                    <td>@mdo</td>
+                                                    <td>Mark</td>
+                                                    <td>Otto</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Mark</td>
+                                                    <td>Otto</td>
+                                                    <td>@mdo</td>
+                                                    <td>Mark</td>
+                                                    <td>Otto</td>
+                                                    <td>@mdo</td>
+                                                    <td>Mark</td>
+                                                    <td>Otto</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Mark</td>
+                                                    <td>Otto</td>
+                                                    <td>@mdo</td>
+                                                    <td>Mark</td>
+                                                    <td>Otto</td>
+                                                    <td>@mdo</td>
+                                                    <td>Mark</td>
+                                                    <td>Otto</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Mark</td>
+                                                    <td>Otto</td>
+                                                    <td>@mdo</td>
+                                                    <td>Mark</td>
+                                                    <td>Otto</td>
+                                                    <td>@mdo</td>
+                                                    <td>Mark</td>
+                                                    <td>Otto</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Mark</td>
+                                                    <td>Otto</td>
+                                                    <td>@mdo</td>
+                                                    <td>Mark</td>
+                                                    <td>Otto</td>
+                                                    <td>@mdo</td>
+                                                    <td>Mark</td>
+                                                    <td>Otto</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Mark</td>
+                                                    <td>Otto</td>
+                                                    <td>@mdo</td>
+                                                    <td>Mark</td>
+                                                    <td>Otto</td>
+                                                    <td>@mdo</td>
+                                                    <td>Mark</td>
+                                                    <td>Otto</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Mark</td>
+                                                    <td>Otto</td>
+                                                    <td>@mdo</td>
+                                                    <td>Mark</td>
+                                                    <td>Otto</td>
+                                                    <td>@mdo</td>
+                                                    <td>Mark</td>
+                                                    <td>Otto</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Mark</td>
+                                                    <td>Otto</td>
+                                                    <td>@mdo</td>
+                                                    <td>Mark</td>
+                                                    <td>Otto</td>
+                                                    <td>@mdo</td>
+                                                    <td>Mark</td>
+                                                    <td>Otto</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Mark</td>
+                                                    <td>Otto</td>
+                                                    <td>@mdo</td>
+                                                    <td>Mark</td>
+                                                    <td>Otto</td>
+                                                    <td>@mdo</td>
+                                                    <td>Mark</td>
+                                                    <td>Otto</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+    
+                        </div>
+    
+                    </tab>
+    
+                    <tab heading="PRO MODE" >
+                        <div class="proModeContainer">
+                            <div class="row pad-0 margin0">
+                                <div class="col-sm-12 pad-0 bgColor ">
+                                    <div class="topPostionCont inline-flex">
+                                        <div class="col-sm-2">
+                                            <div class="btn-group" dropdown>
+                                                <!-- <button dropdownToggle type="button" class="btn btn-primary dropdown-toggle">
+                                                        BTC/JPY <span class="caret"></span>
+                                                    </button>
+                                                    <ul *dropdownMenu class="dropdown-menu" role="menu">
+                                                        <li class="disabled" role="menuitem"><a class="dropdown-item disabled" href="#">Action</a></li>
+                                                        <li role="menuitem"><a class="dropdown-item" href="#">Another action</a>
+                                                        </li>
+                                                        <li role="menuitem"><a class="dropdown-item" href="#">Something else
+                                              here</a></li>
+                                                    </ul> -->
+                                                <select placeholder="BTC" name="cryptoCurrency" class="form-control selectCurrencyPair" [(ngModel)]="currencyPairId.pairId" (change)="getPairId(currencyPairId.pairId)">
+                                                    <option [value]="undefined" disabled>BTC/JPY</option>
+                                                    <option class="dropdownOptions" *ngFor="let data of showCurrencyPair" [value]="data.id">{{data.name}}</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="positionCalculator">
+                                                <label>POSITION</label>
+                                                <div class="btn-group" dropdown>
+                                                    <button dropdownToggle type="button" class="btn btn-primary dropdown-toggle">
+                                                        0.000078 <span class="caret">ETH/BTC</span>
+                                                    </button>
+                                                    <ul *dropdownMenu class="dropdown-menu" role="menu">
+                                                        <li class="disabled" role="menuitem"><a class="dropdown-item disabled" href="#">Action</a></li>
+                                                        <li role="menuitem"><a class="dropdown-item" href="#">Another action</a>
+                                                        </li>
+                                                        <li role="menuitem"><a class="dropdown-item" href="#">Something else
+                                              here</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row pad-50">
+                                <div class="col-sm-12 inline-flex">
+                                    <div class="col-sm-8 border-pro-box marginRght">
+                                        <div class="heading proHead">
+                                            <label>STATISTICS</label>
+                                            <div class="pull-right upDownValues">
+                                                <img class="img-responsive logoImage" src="../../assets/images/upArrow.png">
+                                                <label>108750.99</label>
+                                                <img class="img-responsive logoImage" src="../../assets/images/downArrow.png">
+                                                <label>108750.99</label>
+                                            </div>
+                                        </div>
+                                        <div id="tv_chart"></div>
+                                    </div>
+                                    <div class="col-sm-4 border-pro-box">
+                                        <div class="heading proHead">
+                                            <tabset class="proModeTabset">
+                                                <tab heading="WALLET BAL" id="tab1">
+                                                    <div class="row margin0">
+                                                        <div class="col-sm-6">
+                                                            <label>Available balance</label>
+                                                            <table class="table-responsive">
+                                                                <tr>
+                                                                    <td>JPY</td>
+                                                                    <td>0</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>BTC</td>
+                                                                    <td>0.0079</td>
+                                                                </tr>
+                                                            </table>
+                                                        </div>
+                                                        <div class="col-sm-6">
+                                                            <label>In Use</label>
+                                                            <table class="table-responsive first">
+                                                                <tr>
+                                                                    <td>JPY</td>
+                                                                    <td>0</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>BTC</td>
+                                                                    <td>0.0079</td>
+                                                                </tr>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </tab>
+                                                <tab heading="LEVERAGE BAL">Leverage Bal</tab>
+                                                <tab heading="MAR TRADE">Mar Trade</tab>
+                                            </tabset>
+                                        </div>
+                                        <div class="row pad-65 margin0">
+                                            <tabset class="marketProBody">
+                                                <tab heading="LMT" id="tab1" (select)="enableSpinner()">
+                                                    <div class="row margin0">
+                                                        <div class="loader-backdrop width-100" *ngIf="spinner">
+                                                            <div class="loader"></div>
+                                                        </div>
+                                                        <div class="marketCont">
+                                                            <form #buyForm="ngForm" (ngSubmit)="placeOrder(buyForm,'LIMIT','Pro Mode')" novalidate>
+                                                                <div class="buttonDiv">
+                                                                    <button type="button" class="btn" value="+0.01" (click)="calculateValue(0.01)">+0.01</button>
+                                                                    <button type="button" class="btn" value="+1" (click)="calculateValue(1)">+1</button>
+                                                                    <button type="button" class="btn" value="+5" (click)="calculateValue(5)">+5</button>
+                                                                    <button type="button" class="btn" value="+10" (click)="calculateValue(10)">+10</button>
+                                                                </div>
+                                                                <div class="amountDiv">
+                                                                    <table class="table table-responsive">
+                                                                        <tr>
+                                                                            <td>
+                                                                                <label>Amount</label>
+                                                                            </td>
+                                                                            <td>
+                                                                                <input type="number" name="amount" placeholder="{{currencyPairId.amount}}" [(ngModel)]="currencyPairId.amount" #amount="ngModel" required>
+                                                                                <div class="error-block" *ngIf="amount.invalid && (buyForm.submitted || amount.touched)">
+                                                                                    <span *ngIf="amount.errors.required">Please enter Amount</span>
+                                                                                </div>
+                                                                                <br />
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                                <label>Price</label>
+                                                                            </td>
+                                                                            <td>
+                                                                                <input type="number" name="price" placeholder="{{currencyPairId.price}}" [(ngModel)]="currencyPairId.price" #price="ngModel" required>
+                                                                                <div class="error-block" *ngIf="price.invalid && (buyForm.submitted || price.touched)">
+                                                                                    <span *ngIf="price.errors.required">Please enter Price</span>
+                                                                                </div>
+                                                                                <br />
+                                                                            </td>
+                                                                        </tr>
+                                                                    </table>
+                                                                </div>
+                                                                <div class="labelDiv">
+                                                                    <table class="table table-responsive">
+                                                                        <tr>
+                                                                            <td><span>Estimated Cost:</span></td>
+                                                                            <td><span>0.02</span></td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td><span>Fee:</span></td>
+                                                                            <td><span>0.02</span></td>
+                                                                        </tr>
+                                                                    </table>
+                                                                    <div class="row margin0 pad-20">
+                                                                        <div class="buySellDiv">
+                                                                            <button type="submit" class="btn btn-red">SELL</button>
+                                                                            <button type="submit" class="btn btn-blue">BUY</button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </tab>
+                                                <tab heading="MKT" (select)="enableSpinner()">
+                                                    <div class="row margin0">
+                                                        <div class="loader-backdrop width-100" *ngIf="spinner">
+                                                            <div class="loader"></div>
+                                                        </div>
+                                                        <div class="marketCont">
+                                                            <div class="buttonDiv">
+                                                                <button type="button" class="btn" value="+0.01">+0.01</button>
+                                                                <button type="button" class="btn" value="+1">+1</button>
+                                                                <button type="button" class="btn" value="+5">+5</button>
+                                                                <button type="button" class="btn" value="+10">+10</button>
+                                                            </div>
+                                                            <div class="amountDiv">
+                                                                <table class="table table-responsive">
+                                                                    <tr>
+                                                                        <td>
+                                                                            <label>Amount</label>
+                                                                        </td>
+                                                                        <td>
+                                                                            <input type="number" name="amount" placeholder="0.02">
+                                                                            <br />
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>
+                                                                            <label>Price</label>
+                                                                        </td>
+                                                                        <td>
+                                                                            <input type="number" name="price" placeholder="0.02" disabled>
+                                                                            <br />
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                            </div>
+                                                            <div class="labelDiv">
+                                                                <table class="table table-responsive">
+                                                                    <tr>
+                                                                        <td><span>Estimated Cost:</span></td>
+                                                                        <td><span>0.02</span></td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td><span>Fee:</span></td>
+                                                                        <td><span>0.02</span></td>
+                                                                    </tr>
+                                                                </table>
+                                                                <div class="row margin0 pad-20">
+                                                                    <div class="buySellDiv">
+                                                                        <button type="button" class="btn btn-red">SELL</button>
+                                                                        <button type="button" class="btn btn-blue">BUY</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </tab>
+                                                <tab heading="MRG" disabled="true">Basic content 2</tab>
+                                                <tab heading="LEV" disabled="true">Basic content 2</tab>
+                                            </tabset>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row pad-10">
+                                <div class="col-sm-12">
+                                    <div class="col-sm-8 pad-0 ">
+                                        <div class="col-sm-4 pull-left pad-0 max-width border-pro-box">
+                                            <div class="heading proHead">
+                                                <label>OPEN ORDERS</label>
+                                            </div>
+                                            <div class="table-col tradeHistory proTable">
+                                                <table class="table table-striped">
+                                                    <thead>
+                                                        <tr>
+                                                            <th scope="col">Coin</th>
+                                                            <th scope="col">Price</th>
+                                                            <th scope="col">Volume</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>Mark</td>
+                                                            <td>Otto</td>
+                                                            <td>@mdo</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Mark</td>
+                                                            <td>Otto</td>
+                                                            <td>@mdo</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Mark</td>
+                                                            <td>Otto</td>
+                                                            <td>@mdo</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Mark</td>
+                                                            <td>Otto</td>
+                                                            <td>@mdo</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Mark</td>
+                                                            <td>Otto</td>
+                                                            <td>@mdo</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Mark</td>
+                                                            <td>Otto</td>
+                                                            <td>@mdo</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Mark</td>
+                                                            <td>Otto</td>
+                                                            <td>@mdo</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Mark</td>
+                                                            <td>Otto</td>
+                                                            <td>@mdo</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Mark</td>
+                                                            <td>Otto</td>
+                                                            <td>@mdo</td>
+                                                        </tr>
+    
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-4 pull-left pad-0 max-width border-pro-box">
+                                            <div class="heading proHead">
+                                                <label>OPEN BOOK</label>
+                                            </div>
+                                            <div class="table-col tradeHistory proTable">
+                                                <table class="table table-striped">
+                                                    <thead>
+                                                        <tr>
+                                                            <th scope="col">Coin</th>
+                                                            <th scope="col">Price</th>
+                                                            <th scope="col">Volume</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>Mark</td>
+                                                            <td>Otto</td>
+                                                            <td>@mdo</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Mark</td>
+                                                            <td>Otto</td>
+                                                            <td>@mdo</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Mark</td>
+                                                            <td>Otto</td>
+                                                            <td>@mdo</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Mark</td>
+                                                            <td>Otto</td>
+                                                            <td>@mdo</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Mark</td>
+                                                            <td>Otto</td>
+                                                            <td>@mdo</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Mark</td>
+                                                            <td>Otto</td>
+                                                            <td>@mdo</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Mark</td>
+                                                            <td>Otto</td>
+                                                            <td>@mdo</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Mark</td>
+                                                            <td>Otto</td>
+                                                            <td>@mdo</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Mark</td>
+                                                            <td>Otto</td>
+                                                            <td>@mdo</td>
+                                                        </tr>
+    
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4 pull-right border-pro-box">
+                                        <div class="heading proHead">
+                                            <label>TRADE HISTORY</label>
+                                        </div>
+                                        <div class="table-col tradeHistory proTable">
+                                            <table class="table table-striped">
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">Coin</th>
+                                                        <th scope="col">Price</th>
+                                                        <th scope="col">Volume</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>Mark</td>
+                                                        <td>Otto</td>
+                                                        <td>@mdo</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Mark</td>
+                                                        <td>Otto</td>
+                                                        <td>@mdo</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Mark</td>
+                                                        <td>Otto</td>
+                                                        <td>@mdo</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Mark</td>
+                                                        <td>Otto</td>
+                                                        <td>@mdo</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Mark</td>
+                                                        <td>Otto</td>
+                                                        <td>@mdo</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Mark</td>
+                                                        <td>Otto</td>
+                                                        <td>@mdo</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Mark</td>
+                                                        <td>Otto</td>
+                                                        <td>@mdo</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Mark</td>
+                                                        <td>Otto</td>
+                                                        <td>@mdo</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Mark</td>
+                                                        <td>Otto</td>
+                                                        <td>@mdo</td>
+                                                    </tr>
+    
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row pad-10">
+                                <div class="col-sm-12">
+                                    <div class="col-sm-8 pad-0 border-pro-box">
+                                        <div class="heading proHead">
+                                            <label>TRADE HISTORY</label>
+                                        </div>
+                                        <div class="table-col tradeHistory proTable">
+                                            <table class="table table-striped">
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">S.NO</th>
+                                                        <th scope="col">Date/Time</th>
+                                                        <th scope="col">ID</th>
+                                                        <th scope="col">Symbol</th>
+                                                        <th scope="col">Type</th>
+                                                        <th scope="col">Status</th>
+                                                        <th scope="col">Quantity</th>
+                                                        <th scope="col">Price</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>Mark</td>
+                                                        <td>Otto</td>
+                                                        <td>@mdo</td>
+                                                        <td>Mark</td>
+                                                        <td>Otto</td>
+                                                        <td>@mdo</td>
+                                                        <td>Mark</td>
+                                                        <td>Otto</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Mark</td>
+                                                        <td>Otto</td>
+                                                        <td>@mdo</td>
+                                                        <td>Mark</td>
+                                                        <td>Otto</td>
+                                                        <td>@mdo</td>
+                                                        <td>Mark</td>
+                                                        <td>Otto</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Mark</td>
+                                                        <td>Otto</td>
+                                                        <td>@mdo</td>
+                                                        <td>Mark</td>
+                                                        <td>Otto</td>
+                                                        <td>@mdo</td>
+                                                        <td>Mark</td>
+                                                        <td>Otto</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Mark</td>
+                                                        <td>Otto</td>
+                                                        <td>@mdo</td>
+                                                        <td>Mark</td>
+                                                        <td>Otto</td>
+                                                        <td>@mdo</td>
+                                                        <td>Mark</td>
+                                                        <td>Otto</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Mark</td>
+                                                        <td>Otto</td>
+                                                        <td>@mdo</td>
+                                                        <td>Mark</td>
+                                                        <td>Otto</td>
+                                                        <td>@mdo</td>
+                                                        <td>Mark</td>
+                                                        <td>Otto</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Mark</td>
+                                                        <td>Otto</td>
+                                                        <td>@mdo</td>
+                                                        <td>Mark</td>
+                                                        <td>Otto</td>
+                                                        <td>@mdo</td>
+                                                        <td>Mark</td>
+                                                        <td>Otto</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Mark</td>
+                                                        <td>Otto</td>
+                                                        <td>@mdo</td>
+                                                        <td>Mark</td>
+                                                        <td>Otto</td>
+                                                        <td>@mdo</td>
+                                                        <td>Mark</td>
+                                                        <td>Otto</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Mark</td>
+                                                        <td>Otto</td>
+                                                        <td>@mdo</td>
+                                                        <td>Mark</td>
+                                                        <td>Otto</td>
+                                                        <td>@mdo</td>
+                                                        <td>Mark</td>
+                                                        <td>Otto</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Mark</td>
+                                                        <td>Otto</td>
+                                                        <td>@mdo</td>
+                                                        <td>Mark</td>
+                                                        <td>Otto</td>
+                                                        <td>@mdo</td>
+                                                        <td>Mark</td>
+                                                        <td>Otto</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Mark</td>
+                                                        <td>Otto</td>
+                                                        <td>@mdo</td>
+                                                        <td>Mark</td>
+                                                        <td>Otto</td>
+                                                        <td>@mdo</td>
+                                                        <td>Mark</td>
+                                                        <td>Otto</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Mark</td>
+                                                        <td>Otto</td>
+                                                        <td>@mdo</td>
+                                                        <td>Mark</td>
+                                                        <td>Otto</td>
+                                                        <td>@mdo</td>
+                                                        <td>Mark</td>
+                                                        <td>Otto</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Mark</td>
+                                                        <td>Otto</td>
+                                                        <td>@mdo</td>
+                                                        <td>Mark</td>
+                                                        <td>Otto</td>
+                                                        <td>@mdo</td>
+                                                        <td>Mark</td>
+                                                        <td>Otto</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Mark</td>
+                                                        <td>Otto</td>
+                                                        <td>@mdo</td>
+                                                        <td>Mark</td>
+                                                        <td>Otto</td>
+                                                        <td>@mdo</td>
+                                                        <td>Mark</td>
+                                                        <td>Otto</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Mark</td>
+                                                        <td>Otto</td>
+                                                        <td>@mdo</td>
+                                                        <td>Mark</td>
+                                                        <td>Otto</td>
+                                                        <td>@mdo</td>
+                                                        <td>Mark</td>
+                                                        <td>Otto</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Mark</td>
+                                                        <td>Otto</td>
+                                                        <td>@mdo</td>
+                                                        <td>Mark</td>
+                                                        <td>Otto</td>
+                                                        <td>@mdo</td>
+                                                        <td>Mark</td>
+                                                        <td>Otto</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Mark</td>
+                                                        <td>Otto</td>
+                                                        <td>@mdo</td>
+                                                        <td>Mark</td>
+                                                        <td>Otto</td>
+                                                        <td>@mdo</td>
+                                                        <td>Mark</td>
+                                                        <td>Otto</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Mark</td>
+                                                        <td>Otto</td>
+                                                        <td>@mdo</td>
+                                                        <td>Mark</td>
+                                                        <td>Otto</td>
+                                                        <td>@mdo</td>
+                                                        <td>Mark</td>
+                                                        <td>Otto</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </tab>
+                </tabset>
+            </div>
+        </div>
+        <!-- Modal -->
+         <div class="modal fade" bsModal #buyModal="bs-modal" id="buyModal" tabindex="-1" role="dialog" aria-labelledby="buyModal" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                  <button type="button" class="close" data-dismiss="modal" (click)="closeBuyModal()" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  ...
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" (click)="closeBuyModal()" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+              </div>
+            </div>
+          </div>
+    </div>

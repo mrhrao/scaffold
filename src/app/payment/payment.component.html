@@ -1,0 +1,95 @@
+<div class="container-fluid pad-0 main-header">
+        <div class="col-sm-12">
+            <div class="body-section">
+                <div class="payment-box">
+                    <div class="header" *ngIf="hideOnPurchase==true">
+                        <h3>PAYMENT DETAILS</h3>
+                    </div>
+                    <div *ngIf="showOnPurchase==true">
+                        <div class="header-green">
+                            <h3>Congratulations! You have successfully completed your payment.</h3>
+                        </div>
+                    </div>
+                    <div class="otp-box">
+                        <div class="otp-container">
+                            <!-- <h3>Payment Details</h3> -->
+                            <ngx-braintree [clientTokenURL]="'http://192.168.9.240:7080/api/v1/client/token'" [createPurchaseURL]="'http://192.168.9.240:7080/api/v1/payment/process'" [chargeAmount]="'10'" [showCardholderName]="true" (paymentStatus)="onPaymentStatus($event)" [enabledStyle]="enabledStyle" [disabledStyle]="disabledStyle" [buttonText]="'Purchase'">
+                                <div>
+                                    <style>
+                                        button {
+                                            background-color: #01276f;
+                                            color: #ffffff;
+                                            border: none;
+                                            border-radius: 4px;
+                                            height: 40px;
+                                            line-height: 40px;
+                                            font-size: 16px;
+                                            cursor: pointer;
+                                        }
+                                        
+                                        button:disabled {
+                                            background-color: #01276fc4;
+                                            color: #ffffff;
+                                            border: none;
+                                            border-radius: 4px;
+                                            height: 40px;
+                                            line-height: 40px;
+                                            font-size: 16px;
+                                            cursor: not-allowed;
+                                        }
+                                    </style>
+                                    <div>
+                                        <button ngxPay>Purchase</button>
+                                    </div>
+                                </div>
+                            </ngx-braintree>
+                            <div *ngIf="showOnPurchase==true">
+                                <div class="paymnetHistory">
+                                    <div class="header">
+                                        <h3>CONFIRMATION</h3>
+                                    </div>
+                                    <!-- <table class="table table-responsiveness">
+                                            <tbody>
+                                                <tr>
+                                                    <td>Transaction Id</td>
+                                                    <td>{{transactionId}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Message</td>
+                                                    <td>{{message}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Status</td>
+                                                    <td>{{status}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Card Holder Name</td>
+                                                    <td>{{cardHolderNumber }}</td>
+                                                </tr>
+                                            </tbody>
+                                        </table> -->
+                                    <div class="row pad-0 col-grp">
+                                        <div class="head">TRANSACTION ID</div>
+                                        <div class="answer">{{transactionId}}</div>
+                                    </div>
+                                    <div class="row pad-0 col-grp">
+                                        <div class="head">MESSAGE</div>
+                                        <div class="answer">{{message}}</div>
+                                    </div>
+                                    <div class="row pad-0 col-grp">
+                                        <div class="head">STATUS</div>
+                                        <div class="answer">{{status}}</div>
+                                    </div>
+                                    <div class="row pad-0 col-grp">
+                                        <div class="head">CARD HOLDER NAME</div>
+                                        <div class="answer">{{cardHolderNumber}}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- </div> -->
+                </div>
+            </div>
+        </div>
+    </div>

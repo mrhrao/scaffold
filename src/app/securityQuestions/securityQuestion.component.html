@@ -1,0 +1,132 @@
+
+ <div *ngIf="show404Window">
+		<div class="container-fluid pad-0 wrong-window">
+			<div class="row pad-0">
+				<div class="col-sm-12">
+					<div class="text-center">
+						<img style="width:380px;" src="assets/images/oops.png">
+						<p class="whiteColor">OOPS!<br/>{{verifyMailData.message}}</p>
+						<div class="row">
+						<button type="button" class="btn colrbtn" placeholder="SIGN IN" (click)="goToHome()">SIGN IN</button>
+					</div>
+				</div>
+				</div>
+			</div>
+		</div>
+	</div> 
+		
+		
+	<div class="showSecurityQuestion">	
+		<header id="header"></header>
+		<nav aria-label="breadcrumb">
+			<ol class="breadcrumb">
+				<p class="breadcrumb-item active" aria-current="page">Please submit security questions to recover your account.</p>
+			</ol>
+		</nav>
+		<div class="container-fluid verify-page">
+			<div class="container container-Size">
+				<div class="row">
+						<div class="col-sm-12 pad-0">
+								
+							<div class="col-sm-6 pad-0 pull-left">
+								<div class="verify">
+									<h2>Security Questions</h2>
+									<form #securityForm="ngForm" (ngSubmit)="saveAnswers(securityForm.value)" novalidate>
+										<div class="row pad-20">
+											<div class="col-sm-12">
+												<select *ngIf="verifyMail" placeholder="Select Question" name="questionA" class="form-control" #questionA="ngModel" [(ngModel)]="ques.questionA" required>
+													<option [value]="undefined" disabled>Select Question 1</option>
+													<option *ngFor="let question of questions" [value]="question.id" (change)="validationCheck(question.id)">{{question.question}}</option>
+												</select>
+												<input *ngIf="forgetMailVerify" disabled class="inputField" [value]="ques.questionA" type="text" name="questionA" #questionA="ngModel" [(ngModel)]="ques.question1" required>
+												<input class="inputField" type="text" name="answerA" #answerA="ngModel" placeholder="Answer 1" [(ngModel)]="user.answerA" required>
+			
+											</div>
+										</div>
+										<div class="row pad-20">
+											<div class="col-sm-12">
+												<select *ngIf="verifyMail" placeholder="Select Question" name="questionB" class="form-control" #questionB="ngModel" [(ngModel)]="ques.questionB" required>
+													<option [value]="undefined" disabled>Select Question 2</option>
+													<option *ngFor="let question of questions" [value]="question.id" (change)="validationCheck(question.id)">{{question.question}}</option>
+												</select>
+												<input *ngIf="forgetMailVerify" disabled class="inputField" [value]="ques.questionB" type="text" name="questionB" #questionB="ngModel" [(ngModel)]="ques.question2" required>
+												<input class="inputField" type="text" name="answerB" #answerB="ngModel" placeholder="Answer 2" [(ngModel)]="user.answerB" required>
+											</div>
+										</div>
+										<div class="row pad-20">
+											<div class="col-sm-12">
+												<select *ngIf="verifyMail" placeholder="Select Question" name="questionC" class="form-control" #questionC="ngModel" [(ngModel)]="ques.questionC" required>
+													<option [value]="undefined" disabled>Select Question 3</option>
+													<option *ngFor="let question of questions" [value]="question.id" (change)="validationCheck(question.id)">{{question.question}}</option>
+												</select>
+												<input *ngIf="forgetMailVerify" disabled class="inputField" [value]="ques.questionC" type="text" name="questionC" #questionC="ngModel" [(ngModel)]="ques.question3" required>
+												<input class="inputField" type="text" name="answerC" #answerC="ngModel" placeholder="Answer 3" [(ngModel)]="user.answerC" required>
+											</div>
+										</div>
+										<div class="row">
+											<button type="submit" [disabled]="!securityForm.valid" label="Click" class="btn  savebtn">SAVE</button>
+										</div>
+									</form>
+								</div>
+			
+							</div>
+							<div class="col-sm-6 pull-right">
+									<div class="img-center"><img src="assets/images/Securityicon.png"></div>
+							</div>
+						</div>
+				</div>
+				
+				
+			</div>
+			<ng-template #accountRecovery class="loginModal">
+				<div class="loader-backdrop" *ngIf="spinner">
+					<div class="loader"></div>
+				</div>
+				<div class="modal-body" class="loginModal">
+					<div class="fluid-container">
+						<!-- Form-->
+						<!-- <div class="img-post">
+								<img src="/assets/images/cardBG1.png">
+								<h3 class="loginHeading top">OTP</h3>
+							</div> -->
+						<div class="form">
+							<div class="form-toggle"></div>
+							<div class="form-panel one">
+								<h5 class="OTPPassHead">ACCOUNT RECOVERY</h5>
+								<div class="form-content">
+									<form #AccountRecovery="ngForm" (ngSubmit)="getAccountRecovery(AccountRecovery)">
+										<div class="row padtop">
+											<div class="input_label" [ngClass]="{'error-border':(newPassword.invalid && AccountRecovery.submitted || newPassword.invalid && newPassword.touched)}">
+												<input class="radioOption" pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#$@!%&*?])[A-Za-z\d#$@!%&*?]{8,64}" type="password" name="newPassword" [(ngModel)]="data.newPassword" #newPassword="ngModel" placeholder="NEW PASSWORD" required>
+											</div>
+											<div class="error-block" *ngIf="newPassword.invalid && (AccountRecovery.submitted || newPassword.touched)">
+												<span *ngIf="newPassword.errors.required">Please enter Password</span>
+	
+												<div class="hintDiv" *ngIf="newPassword.errors.pattern">
+													<span>Password should have atleast one lowercase,one upper case,one number and one special character. Also length of password should be between 8 to 64</span>
+												</div>
+											</div>
+										</div>
+										<div class="row padtop">
+											<div class="input_label" [ngClass]="{'error-border':(confirmPassword.invalid && AccountRecovery.submitted ||confirmPassword.invalid && confirmPassword.touched)}">
+												<input class="radioOption" type="password" name="confirmPassword" [(ngModel)]="data.confirmPassword" #confirmPassword="ngModel" placeholder="CONFIRM PASSWORD" required>
+											</div>
+											<div class="error-block" *ngIf="confirmPassword.invalid && (AccountRecovery.submitted || confirmPassword.touched)"> <span *ngIf="confirmPassword.errors.required">Please enter Confirm Password</span>
+											</div>
+											<div class="error-block" *ngIf="data.confirmPassword!=data.newPassword && !confirmPassword.invalid"> <span>Password and Confirm Password doesn't match</span>
+											</div>
+										</div>
+										<div class="row btn-col">
+											<button [disabled]="!AccountRecovery.valid" type="submit" class="btn butn-col"><img src="/assets/images/signInBtn.png">
+											</button>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</ng-template>
+		</div>
+		<footer></footer>
+		</div>

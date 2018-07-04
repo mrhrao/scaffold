@@ -1,0 +1,147 @@
+<div class="container-fluid bg-color">
+        <div class="assessment-container container">
+                <div class="header">
+                        <h3>KYC DETAILS</h3>
+                    </div>
+            <div class="row">
+                <div class="col-md-12 form-box">
+                    <div class="kycContainer">
+                        <form role="form" class="registration-form" action="javascript:void(0);">
+                            <fieldset>
+                                <div class="form-top">
+                                    <div class="form-top-center">
+                                        <h3><span><i class="fa fa-calendar-check-o" aria-hidden="true"></i></span>KYC DETAILS</h3>
+                                        <!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit
+                                            </p> -->
+                                    </div>
+                                </div>
+                                <form #kycForm="ngForm" (ngSubmit)="submittKyc(kycForm)" novalidate>
+                                    <div class="form-bottom">
+                                        <div class="row">
+                                            <div class="form-group col-md-6 col-sm-6">
+                                                <div [ngClass]="{'error-border':(firstName.invalid && kycForm.submitted || firstName.invalid && firstName.touched)}">
+                                                    <input class="form-control input-label-field" placeholder="First Name" type="text" name="firstName" id="firstName" pattern="[A-Za-z]+" maxlength="50" minlength="3" [(ngModel)]="user.firstName" #firstName="ngModel" required />
+                                                    <div class="error-block" *ngIf="firstName.invalid && (kycForm.submitted || firstName.touched)">
+                                                        <span *ngIf="firstName.errors.required">Please enter First Name</span>
+                                                        <span *ngIf="firstName.errors.pattern">Please enter alphabetic character</span>
+                                                        <span *ngIf="firstName.errors.minlength && !firstName.errors.pattern">Please enter atleast 3 alphabetic characters.</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group col-md-6 col-sm-6">
+                                                <div [ngClass]="{'error-border':(lastName.invalid && kycForm.submitted || lastName.invalid && lastName.touched)}">
+    
+                                                    <input class="form-control input-label-field" placeholder="Last Name" type="text" maxlength="50" minlength="3" name="lastName" id="lastName" pattern="[A-Za-z]+" [(ngModel)]="user.lastName" #lastName="ngModel" required />
+    
+                                                    <div class="error-block" *ngIf="lastName.invalid && (kycForm.submitted || lastName.touched)">
+                                                        <span *ngIf="lastName.errors.required">Please enter Last Name</span>
+                                                        <span *ngIf="lastName.errors.pattern">Please enter alphabetic character</span>
+                                                        <span *ngIf="lastName.errors.minlength && !lastName.errors.pattern">Please enter atleast 3 alphabetic characters.</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+    
+                                        <div class="form-group" style="margin-bottom:3px;">
+                                            <div class="row">
+                                                <div class="form-group col-md-6 col-sm-6">
+                                                    <div [ngClass]="{'error-border':(nationality.invalid && kycForm.submitted || nationality.invalid && nationality.touched)}">
+    
+                                                        <input class="form-control input-label-field" placeholder="Nationality" type="text" maxlength="50" minlength="3" name="nationality" id="nationality" pattern="[A-Za-z]+" [(ngModel)]="user.nationality" #nationality="ngModel" required />
+    
+                                                        <div class="error-block" *ngIf="nationality.invalid && (kycForm.submitted || nationality.touched)">
+                                                            <span *ngIf="nationality.errors.required">Please enter Nationality.</span>
+                                                            <span *ngIf="nationality.errors.pattern">Please enter alphabetic character</span>
+                                                            <span *ngIf="nationality.errors.minlength && !lastName.errors.pattern">Please enter atleast 3 alphabetic characters.</span>
+                                                        </div>
+                                                    </div>
+    
+                                                </div>
+                                                <div class="form-group col-md-6 col-sm-6">
+                                                    <input type="text" class="form-control" placeholder="Contact Number" id="contact_number">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group" style="margin-bottom:3px;">
+                                            <div class="row">
+                                                <div class="form-group col-md-6 col-sm-6">
+                                                    <select class="form-control" placeholder="Country Of Residence">
+                                                        <option>Country Of Residence</option>
+                                                        <option>00</option>
+                                                        <option>00</option>
+                                                        <option>00</option>
+                                                        <option>00</option>
+                                                    </select>
+                                                </div>
+                                                <div class="form-group col-md-6 col-sm-6">
+                                                    <input type="text" class="form-control" placeholder="Date Of Birth" id="dob">
+                                                </div>
+                                            </div>
+                                        </div>
+    
+                                        <div class="form-group">
+                                            <select class="form-control">
+                                                <option>Gender</option>
+                                                <option>Male</option>
+                                                <option>Female</option>
+                                            </select>
+                                        </div>
+    
+                                        <button type="button" class="btn btn-next">Submit</button>
+                                    </div>
+                                </form>
+                            </fieldset>
+                            <fieldset>
+                                <div class="form-top">
+                                    <div class="form-top-center">
+                                        <h3><span><i class="fa fa-calendar-check-o" aria-hidden="true"></i></span> Upload Documents</h3>
+                                        <!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit
+                                    </p> -->
+                                    </div>
+                                </div>
+                                <div class="form-bottom">
+                                    <div class="form-group col-sm-12 image-uploader">
+                                        <div class="col-sm-6 document-1 text-center">
+                                            <a class="nationality-id-image set-width" #documentNationalityLink target="_blank" href={{nationalityLink}}>
+                                                <img #documentNationalityImage class="documentImage" src="{{getNationalityImage}}">
+                                                <!-- <img  src="../../assets/images/img-back.png"> -->
+                                            </a>
+    
+                                            <div class="file-btn col-sm-12 text-center ">
+                                                <!-- <button class="fileUpload"> <img src="../../assets/images/file-upload-icon.png" class="img-responsive"/>
+                                              Choose File -->
+    
+                                                <input class="upload" type="file" accept="image/*" pattern="'.pdf,.jpeg,.jpg,.png'" name="upload" (change)="nationalityChange($event)" placeholder="BROWSE">
+                                                <!-- </button> -->
+                                                <button type="button" class="btn fileUpload"><img src="../../assets/images/upload.png" class="img-responsive" /> Upload</button>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 document-2 text-center">
+                                            <a class="nationality-id-image set-width" #documentSelfieLink target="_blank" href={{selfieLink}}>
+                                                <img #documentSelfieImage class="documentImage" src="{{getSelfieImage}}">
+                                            </a>
+    
+                                            <div class="file-btn col-sm-12 text-center ">
+                                                <!-- <button class="fileUpload"> <img src="../../assets/images/file-upload-icon.png" class="img-responsive"/>
+                                  Choose File -->
+    
+                                                <input class="upload" type="file" accept="image/*" pattern="'.pdf,.jpeg,.jpg,.png'" name="upload" (change)="SelfieChange($event)" placeholder="BROWSE">
+                                                <!-- </button> -->
+                                                <button type="button" class="btn fileUpload"><img src="../../assets/images/upload.png" class="img-responsive" /> Upload</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button type="button" class="btn btn-previous">Previous</button>
+                                    <!-- <button type="button" class="btn btn-next">Next</button> -->
+    
+                                    <button type="submit" class="btn">Submit</button>
+    
+                                </div>
+                            </fieldset>
+    
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

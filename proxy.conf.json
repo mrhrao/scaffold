@@ -1,0 +1,11 @@
+{
+  "/services": {
+    "target": "http://ezbitex.oodleslab.com:6969/",
+    "secure": false,
+    "pathRewrite":{"^/services" : ""}
+  }
+
+}
+
+
+

@@ -1,0 +1,152 @@
+
+.verify-page{
+  background: #f4f4f4;
+  display: table;
+  height: 100%;
+  width: 100%;
+}
+.margin-50{
+  width:200px;
+}
+.video-container{
+  position:relative;
+  min-height: 500px;
+  height: auto;
+
+}
+video {
+  vertical-align: middle;
+  width: 100%;
+  opacity: 0.7;
+}
+
+
+#notifications-full{
+  border: 5px solid #007bff;
+  -moz-box-shadow: 0px 0px 50px rgba(0,0,0,0.1);
+  -webkit-box-shadow: 0px 0px 50px rgba(0,0,0,0.1);
+  box-shadow: 0px 0px 50px rgba(0,0,0,0.1);
+  height: 335px;
+  width: 530px;
+  padding: 20px;
+  background-color: rgba(255,255,255,1);
+  position: absolute;
+  margin-top: 10%;
+  margin-left: -265px;
+  z-index: 2;
+  left: 50%;
+  top: 10%;
+  animation: bounce 5s infinite;
+}
+#notifications-full-close{
+  height: 20px;
+  width: 20px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: #cccccc;
+  font-size: 20px;
+  line-height: 20px;
+  text-align: center;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
+}
+#notifications-full-close:hover {
+  color: rgba(102,102,102,1);
+  cursor: pointer;
+}
+#notifications-full-icon{
+  float: left;
+  width: 100%;
+  font-size: 65px;
+  text-align: center;
+  color: #404040;
+}
+h2{
+  text-transform: uppercase;
+    color: #2196f3;
+}
+p{
+  padding: 10px;
+}
+.colrBlu{
+  font-size: 18px;
+    color: #135389;
+    text-transform: uppercase;
+}
+#notifications-full-text{
+ width: 100%;
+    float: left;
+    text-align: center;
+    font-size: 16px;
+    line-height: 24px;
+    color: #404040;
+}
+#header{
+  padding:0px 50px;
+}
+
+ @-webkit-keyframes bounce {
+  0%, 20%, 53%, 80%, 100% {
+    -webkit-transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+            transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    -webkit-transform: translate3d(0,0,0);
+            transform: translate3d(0,0,0);
+  }
+
+  40%, 43% {
+    -webkit-transition-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);
+            transition-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);
+    -webkit-transform: translate3d(0, -30px, 0);
+            transform: translate3d(0, -30px, 0);
+  }
+
+  70% {
+    -webkit-transition-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);
+            transition-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);
+    -webkit-transform: translate3d(0, -15px, 0);
+            transform: translate3d(0, -15px, 0);
+  }
+
+  90% {
+    -webkit-transform: translate3d(0,-4px,0);
+            transform: translate3d(0,-4px,0);
+  }
+}
+ 
+/*End Of New Screen */
+
+/* end of css of login modal */
+
+ @media only screen and (max-width: 1350px) and (min-width: 1280px){ 
+ 
+ }
+ @media only screen and (max-width: 1279px) and (min-width: 991px){ 
+ 
+} 
+
+ @media only screen and (max-width: 990px) and (min-width: 768px){ 
+#header{
+    padding-right: 20px !important;
+    padding-left: 20px !important;
+  }
+  .logoImage{
+    width: 120px;
+  }
+  #navbar li{
+    margin-right: 12px;
+  }
+  #navbar>li >a{
+    font-size: 12px;
+  }
+  
+}
+@media only screen and (max-width: 767px) and (min-width: 320px){ 
+#oneLine-display{
+  display: none;
+}
+.navbar-toggle {border:none!important;background-color:transparent!important}
+}
+
