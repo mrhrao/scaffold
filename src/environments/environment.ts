@@ -7,7 +7,7 @@ export const environment = {
   production: false
 };
 
-const url: string = "http://192.168.9.52:1117/"
+const url: string = "http://180.151.84.102/"
 export const config = {
   production: false,
   envName: 'localhost',
