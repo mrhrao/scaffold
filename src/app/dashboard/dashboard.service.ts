@@ -9,7 +9,7 @@ export class DashboardService {
     }
 
     logout(userEmail) {  
-        return this.http.delete("http://180.151.84.102/api/v1/logout?userEmail=" + userEmail);
+        return this.http.delete("http://180.151.84.102/api-auth/api/v1/logout?userEmail=" + userEmail);
     }
 
 

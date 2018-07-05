@@ -23,6 +23,7 @@ import * as $ from 'jquery';
 
 export class  HeaderComponent implements OnInit{ 
   
+  email: string;
   fullName: any;
 setLanguage:any;
 spinner:any;
@@ -57,6 +58,7 @@ public selectLanguage:any = [
    ];
    @Output() routerUpdate = new EventEmitter();
   @ViewChild('otptemplate') public otptemplate;
+  @ViewChild('mobileNumber') public mobileNumber;
   // @ViewChild(ReCaptchaComponent) public captcha: ReCaptchaComponent;
   // @ViewChild('forgetPassword') public forgetPassword:TemplateRef<any>;
   // @ViewChild('accountRecovery') public accountRecovery;
@@ -181,8 +183,8 @@ signin(form: NgForm) {
      this.toasterService.success(this.loginData.message);
      form.reset();
      //this.user.reset();
-     this.router.navigate(['/app/dashboard']);
-     //this.openModal(this.otptemplate);
+    //  this.router.navigate(['/app/dashboard']);
+     this.openModal(this.mobileNumber);
     }, errorData => {
       this.spinner=false;
       console.log(errorData);
@@ -190,6 +192,32 @@ signin(form: NgForm) {
     })
   }
   /*Login Form */
+
+
+// mobile verification form
+
+submitMobile(form: NgForm){
+  //this.spinner=true;
+let token= localStorage.getItem("token");
+console.log("Token", token);
+let email= JSON.parse(localStorage.getItem("email"));
+// "emailId": this.email,
+// "password": form.value.password,
+// this.router.navigate(['/home']);
+  this.headerService.mobileNumber(token).subscribe(
+    successData => {
+      //  this.getLogoutData=successData;
+      //  this.toasterService.success(this.getLogoutData.message);
+       this.spinner=false;
+       this.router.navigate(['/app/dashboard']);
+      }, errorData => {
+        this.spinner=false;
+          console.log(errorData);
+          // this.toasterService.error(errorData.error.message);
+     });
+
+ 
+}
 
 
  

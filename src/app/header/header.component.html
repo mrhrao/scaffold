@@ -1,103 +1,116 @@
 <div class="main-header">
-        <!--  Start of header -->
-        <div id="navbar">
-            <nav class="navbar navbar-default">
-                <div class="container-fluid pad-63">
-                    <div class="navbar-header">
-                        <a class="navbar-brand" [routerLink]="['/home']" (click)="onActive('Home')">
-                            <img (click)="scrollTop()"class="img-responsive logoImage" src="assets/images/logo.png">
-                        </a>
-                        <button type="button" class="navbar-toggle" (click)="onToggle()"> <span class="sr-only">Toggle navigation</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-                        <div id="languageSelect"> <span *ngIf="setLanguage=='ENGLISH'">
+    <!--  Start of header -->
+    <div id="navbar">
+        <nav class="navbar navbar-default">
+            <div class="container-fluid pad-63">
+                <div class="navbar-header">
+                    <a class="navbar-brand" [routerLink]="['/home']" (click)="onActive('Home')">
+                        <img (click)="scrollTop()" class="img-responsive logoImage" src="assets/images/logo.png">
+                    </a>
+                    <button type="button" class="navbar-toggle" (click)="onToggle()">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <div id="languageSelect">
+                        <span *ngIf="setLanguage=='ENGLISH'">
                             <img src="assets/images/eng.png" width="20" height="20">
-                            </span>
-                            <span *ngIf="setLanguage=='JAPANESE'">
-                               <img src="assets/images/japan.png" width="20" height="20">
-                               </span>
-                            <select id="languageDropdown" [(ngModel)]="setLanguage" class="languageFont handIcon">
-                                <option *ngFor="let language of selectLanguage" [value]="language.value">{{language.value}}</option>
-                            </select>
-                        </div>
+                        </span>
+                        <span *ngIf="setLanguage=='JAPANESE'">
+                            <img src="assets/images/japan.png" width="20" height="20">
+                        </span>
+                        <select id="languageDropdown" [(ngModel)]="setLanguage" class="languageFont handIcon">
+                            <option *ngFor="let language of selectLanguage" [value]="language.value">{{language.value}}</option>
+                        </select>
                     </div>
-                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" [ngClass]="{'expand': toggleIt }">
-                        <ul class="nav navbar-nav  navbar-right">
-                            <li> <a (click)="onActive('About')" [routerLink]="['/home']" fragment="About" [class.active-link]="activeSiteSection == 'About'">About</a>
-                            </li>
-                            <li> <a (click)="onActive('Solutions')" [routerLink]="['/home']" fragment="Solutions" [class.active-link]="activeSiteSection == 'Solutions'">Solutions</a>
-                            </li>
-                            <li> <a (click)="onActive('Services')" [routerLink]="['/home']" fragment="Services" [class.active-link]="activeSiteSection == 'Services'">Services</a>
-                            </li>
-                            <li> <a (click)="onActive('Download')" [routerLink]="['/home']" fragment="Download" [class.active-link]="activeSiteSection == 'Download'">Download</a>
-                            </li>
-                            <li> <a (click)="onActive('Contact')" [routerLink]="['/home']" fragment="Contact" [class.active-link]="activeSiteSection == 'Contact'">Contact Us</a>
-                            </li>
-                            <li>
-                                <a (click)="onActive('Login')" [routerLink]="['/home']" fragment="Login" [class.active-link]="activeSiteSection == 'Login'" class="pad-left" (click)="openModal(logintemplate)">Login/Register</a>
-                            </li>
-                            <!-- <li>
+                </div>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" [ngClass]="{'expand': toggleIt }">
+                    <ul class="nav navbar-nav  navbar-right">
+                        <li>
+                            <a (click)="onActive('About')" [routerLink]="['/home']" fragment="About" [class.active-link]="activeSiteSection == 'About'">About</a>
+                        </li>
+                        <li>
+                            <a (click)="onActive('Solutions')" [routerLink]="['/home']" fragment="Solutions" [class.active-link]="activeSiteSection == 'Solutions'">Solutions</a>
+                        </li>
+                        <li>
+                            <a (click)="onActive('Services')" [routerLink]="['/home']" fragment="Services" [class.active-link]="activeSiteSection == 'Services'">Services</a>
+                        </li>
+                        <li>
+                            <a (click)="onActive('Download')" [routerLink]="['/home']" fragment="Download" [class.active-link]="activeSiteSection == 'Download'">Download</a>
+                        </li>
+                        <li>
+                            <a (click)="onActive('Contact')" [routerLink]="['/home']" fragment="Contact" [class.active-link]="activeSiteSection == 'Contact'">Contact Us</a>
+                        </li>
+                        <li>
+                            <a (click)="onActive('Login')" [routerLink]="['/home']" fragment="Login" [class.active-link]="activeSiteSection == 'Login'"
+                                class="pad-left" (click)="openModal(logintemplate)">Login/Register</a>
+                        </li>
+                        <!-- <li>
                                 <a (click)="onActive('Register')" [routerLink]="['/home']" fragment="Register" [class.active-link]="activeSiteSection == 'Register'" class="pad-left" (click)="openModal(registerTemplate)">Register</a>
                             </li> -->
-                        </ul>
-                    </div>
+                    </ul>
                 </div>
-            </nav>
-        </div>
-        <!-- End of Header -->
-        <!-- Start Of Login Modal Template -->
-        <div class="loginTemplate  loginModal" #logintemplate>
-            <ng-template #logintemplate id="logintemplate">
-                <div class="loader-backdrop" *ngIf="spinner">
-                    <div class="loader"></div>
-                </div>
-                <div class="loginTemplateModal " (click)="onAnimation()">
-                    <div class="modal-body loginTemplateModal">
-                        <div class="fluid-container">
-                            <!-- Form-->
-                            <!--  <div class="img-post">
+            </div>
+        </nav>
+    </div>
+    <!-- End of Header -->
+    <!-- Start Of Login Modal Template -->
+    <div class="loginTemplate  loginModal" #logintemplate>
+        <ng-template #logintemplate id="logintemplate">
+            <div class="loader-backdrop" *ngIf="spinner">
+                <div class="loader"></div>
+            </div>
+            <div class="loginTemplateModal " (click)="onAnimation()">
+                <div class="modal-body loginTemplateModal">
+                    <div class="fluid-container">
+                        <!-- Form-->
+                        <!--  <div class="img-post">
                                 <img src="/assets/images/cardBG1.png">
                                 <h3 class="loginHeading top">LOGIN</h3>
                                 <h3 class="registerHeading">REGISTER</h3>
                             </div> -->
-                            <div class="form">
-                                <div class="form-toggle"></div>
-                                <div class="form-panel one">
-                                    <div class="headerImage width80"><img src="assets/images/icon-sign-in-large.png"></div>
-                                    <div class="form-content">
-                                        <form #signinForm="ngForm" (ngSubmit)="signin(signinForm)" novalidate>
-                                            <div class="row marginn0">
-                                                <div class="col-md-12">
-                                                    <div [ngClass]="{'error-border':(emailId.invalid && signinForm.submitted || emailId.invalid && emailId.touched)}">
-                                                        <div class="margin12">
-                                                            <input class="input-label-field" placeholder="Email" type="email" name="emailId" [(ngModel)]="loginUser.emailId" #emailId="ngModel" pattern="^[a-z0-9._\+]{2,}@[a-z]+\.(?!web)[a-z]{2,5}$" email required/>
-                                                        </div>
-                                                        <div class="error-block" *ngIf="emailId.invalid && (signinForm.submitted || emailId.touched)">
-                                                            <span *ngIf="emailId.errors.required">Please enter Email</span>
-                                                            <span *ngIf="!emailId.errors.required && emailId.errors.pattern">Please enter valid email</span>
-                                                        </div>
+                        <div class="form">
+                            <div class="form-toggle"></div>
+                            <div class="form-panel one">
+                                <div class="headerImage width80">
+                                    <img src="assets/images/icon-sign-in-large.png">
+                                </div>
+                                <div class="form-content">
+                                    <form #signinForm="ngForm" (ngSubmit)="signin(signinForm)" novalidate>
+                                        <div class="row marginn0">
+                                            <div class="col-md-12">
+                                                <div [ngClass]="{'error-border':(emailId.invalid && signinForm.submitted || emailId.invalid && emailId.touched)}">
+                                                    <div class="margin12">
+                                                        <input class="input-label-field" placeholder="Email" type="email" name="emailId" [(ngModel)]="loginUser.emailId" #emailId="ngModel"
+                                                            pattern="^[a-z0-9._\+]{2,}@[a-z]+\.(?!web)[a-z]{2,5}$" email required/>
+                                                    </div>
+                                                    <div class="error-block" *ngIf="emailId.invalid && (signinForm.submitted || emailId.touched)">
+                                                        <span *ngIf="emailId.errors.required">Please enter Email</span>
+                                                        <span *ngIf="!emailId.errors.required && emailId.errors.pattern">Please enter valid email</span>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="row marginn0">
-                                                <div class="col-md-12">
-                                                    <div [ngClass]="{'error-border':(passwordId.invalid && signinForm.submitted || passwordId.invalid && passwordId.touched)}">
-                                                        <div class="margin12">
-                                                            <input class="input-label-field" type="password" id="passwordId" placeholder="Password" name="password" tooltip="Password should have atleast one lowercase,one upper case,one number and one special character. Also length of password should be between 8 to 64" placement="bottom" pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#$@!%&*?])[A-Za-z\d#$@!%&*?]{8,64}" [(ngModel)]="loginUser.password" #passwordId="ngModel" required />
-                                                        </div>
-                                                        <div class="error-block" *ngIf="passwordId.invalid && (signinForm.submitted || passwordId.touched)">
-                                                            <span *ngIf="passwordId.errors.required">Please enter Password</span>
-    
-                                                            <!-- <div class="hintDiv" *ngIf="passwordId.errors.pattern">
+                                        </div>
+                                        <div class="row marginn0">
+                                            <div class="col-md-12">
+                                                <div [ngClass]="{'error-border':(passwordId.invalid && signinForm.submitted || passwordId.invalid && passwordId.touched)}">
+                                                    <div class="margin12">
+                                                        <input class="input-label-field" type="password" id="passwordId" placeholder="Password" name="password" tooltip="Password should have atleast one lowercase,one upper case,one number and one special character. Also length of password should be between 8 to 64"
+                                                            placement="bottom" pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#$@!%&*?])[A-Za-z\d#$@!%&*?]{8,64}"
+                                                            [(ngModel)]="loginUser.password" #passwordId="ngModel" required />
+                                                    </div>
+                                                    <div class="error-block" *ngIf="passwordId.invalid && (signinForm.submitted || passwordId.touched)">
+                                                        <span *ngIf="passwordId.errors.required">Please enter Password</span>
+
+                                                        <!-- <div class="hintDiv" *ngIf="passwordId.errors.pattern">
     
                                                             </div> -->
-                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <!-- <div class="row marginn0">
+                                        </div>
+                                        <!-- <div class="row marginn0">
                                                 <div class="col-md-12">
                                                     <div class="recpatchaModal margin30">
                                                         <re-captcha name="recaptcha" [(ngModel)]="loginUser.recaptcha" site_key={{privateKey}} required></re-captcha>
@@ -106,103 +119,120 @@
                                                     </div>
                                                 </div>
                                             </div> -->
-                                            <div class="row marginn0">
-                                                <div class="col-md-12 btn-col">
-                                                    <button type="submit" [disabled]="!signinForm.valid" id="signInBtn" #signInBtn class="btn butn-col"><img src="/assets/images/signInBtn.png">
-                                                    </button>
-                                                </div>
+                                        <div class="row marginn0">
+                                            <div class="col-md-12 btn-col">
+                                                <button type="submit" [disabled]="!signinForm.valid" id="signInBtn" #signInBtn class="btn butn-col">
+                                                    <img src="/assets/images/signInBtn.png">
+                                                </button>
                                             </div>
-                                            <div class="row marginn0">
-                                                <div class="col-md-12 text-center padding-8">
-                                                    <span class="resendOtp">
-                                             <a target="_blank"  (click)="openModal(forgetPassword)" >Forgot Password?</a>
-                                            </span>
-                                                </div>
+                                        </div>
+                                        <div class="row marginn0">
+                                            <div class="col-md-12 text-center padding-8">
+                                                <span class="resendOtp">
+                                                    <a target="_blank" (click)="openModal(forgetPassword)">Forgot Password?</a>
+                                                </span>
                                             </div>
-                                        </form>
-                                    </div>
+                                        </div>
+                                    </form>
                                 </div>
-                                <!-- Second form -->
-    
-                                <div class="form-panel two">
-                                    <div class="pull-left"><img class="left-menu" src="assets/images/icon-sign-up-small.png"></div>
-                                    <div class="headerImage"><img src="assets/images/icon-sign-up-large.png"></div>
-                                    <div class="form-content width100">
-    
-                                        <form #signupForm="ngForm" (ngSubmit)="signup(signupForm)" novalidate style="left: 10%;position: relative;">
-                                            <div class="row marginn0">
-                                                <div class="col-md-12 disply margin12">
-                                                    <div class="col-sm-6">
-                                                        <div [ngClass]="{'error-border':(firstName.invalid && signupForm.submitted || firstName.invalid && firstName.touched)}">
-                                                            <input class="input-label-field" placeholder="First Name" type="text" name="firstName" id="firstName" pattern="[A-Za-z]+" maxlength="50" minlength="3" [(ngModel)]="user.firstName" #firstName="ngModel" required />
-                                                            <div class="error-block" *ngIf="firstName.invalid && (signupForm.submitted || firstName.touched)">
-                                                                <span *ngIf="firstName.errors.required">Please enter First Name</span>
-                                                                <span *ngIf="firstName.errors.pattern">Please enter alphabetic character</span>
-                                                                <span *ngIf="firstName.errors.minlength && !firstName.errors.pattern">Please enter atleast 3 alphabetic characters.</span>
-                                                            </div>
+                            </div>
+                            <!-- Second form -->
+
+                            <div class="form-panel two">
+                                <div class="pull-left">
+                                    <img class="left-menu" src="assets/images/icon-sign-up-small.png">
+                                </div>
+                                <div class="headerImage">
+                                    <img src="assets/images/icon-sign-up-large.png">
+                                </div>
+                                <div class="form-content width100">
+
+                                    <form #signupForm="ngForm" (ngSubmit)="signup(signupForm)" novalidate style="left: 10%;position: relative;">
+                                        <div class="row marginn0">
+                                            <div class="col-md-12 disply margin12">
+                                                <div class="col-sm-6">
+                                                    <div [ngClass]="{'error-border':(firstName.invalid && signupForm.submitted || firstName.invalid && firstName.touched)}">
+                                                        <input class="input-label-field" placeholder="First Name" type="text" name="firstName" id="firstName" pattern="[A-Za-z]+"
+                                                            maxlength="50" minlength="3" [(ngModel)]="user.firstName" #firstName="ngModel"
+                                                            required />
+                                                        <div class="error-block" *ngIf="firstName.invalid && (signupForm.submitted || firstName.touched)">
+                                                            <span *ngIf="firstName.errors.required">Please enter First Name</span>
+                                                            <span *ngIf="firstName.errors.pattern">Please enter alphabetic character</span>
+                                                            <span *ngIf="firstName.errors.minlength && !firstName.errors.pattern">Please enter atleast 3 alphabetic characters.</span>
                                                         </div>
                                                     </div>
-                                                    <div class="col-sm-6">
-                                                        <div [ngClass]="{'error-border':(lastName.invalid && signupForm.submitted || lastName.invalid && lastName.touched)}">
-    
-                                                            <input class="input-label-field" placeholder="Last Name" type="text" maxlength="50" minlength="3" name="lastName" id="lastName" pattern="[A-Za-z]+" laceholder="Last Name" type="text" maxlength="50" minlength="3" name="lastName" id="lastName" pattern="[A-Za-z]+" [(ngModel)]="user.lastName" #lastName="ngModel" required />
-    
-                                                            <div class="error-block" *ngIf="lastName.invalid && (signupForm.submitted || lastName.touched)">
-                                                                <span *ngIf="lastName.errors.required">Please enter Last Name</span>
-                                                                <span *ngIf="lastName.errors.pattern">Please enter alphabetic character</span>
-                                                                <span *ngIf="lastName.errors.minlength && !lastName.errors.pattern">Please enter atleast 3 alphabetic characters.</span>
-                                                            </div>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <div [ngClass]="{'error-border':(lastName.invalid && signupForm.submitted || lastName.invalid && lastName.touched)}">
+
+                                                        <input class="input-label-field" placeholder="Last Name" type="text" maxlength="50" minlength="3" name="lastName" id="lastName"
+                                                            pattern="[A-Za-z]+" laceholder="Last Name" type="text" maxlength="50"
+                                                            minlength="3" name="lastName" id="lastName" pattern="[A-Za-z]+" [(ngModel)]="user.lastName"
+                                                            #lastName="ngModel" required />
+
+                                                        <div class="error-block" *ngIf="lastName.invalid && (signupForm.submitted || lastName.touched)">
+                                                            <span *ngIf="lastName.errors.required">Please enter Last Name</span>
+                                                            <span *ngIf="lastName.errors.pattern">Please enter alphabetic character</span>
+                                                            <span *ngIf="lastName.errors.minlength && !lastName.errors.pattern">Please enter atleast 3 alphabetic characters.</span>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="row marginn0">
-                                                <div class="col-md-12 disply margin12">
-                                                    <div class="col-sm-6">
-                                                        <div [ngClass]="{'error-border':(email.invalid && signupForm.submitted || email.invalid && email.touched)}">
-                                                            <input class="input-label-field" placeholder="Email" type="email" id="email" name="email" [(ngModel)]="user.email" #email="ngModel" pattern="^[a-z0-9._\+]{2,}@[a-z]+\.(?!web)[a-z]{2,5}$" email required />
-                                                            <div class="error-block" *ngIf="email.invalid && (signupForm.submitted || email.touched)">
-                                                                <span *ngIf="email.errors.required">Please enter Email</span>
-                                                                <span *ngIf="!email.errors.required && email.errors.pattern">Please enter valid email</span>
-                                                            </div>
-                                                            
-                                                            
+                                        </div>
+                                        <div class="row marginn0">
+                                            <div class="col-md-12 disply margin12">
+                                                <div class="col-sm-6">
+                                                    <div [ngClass]="{'error-border':(email.invalid && signupForm.submitted || email.invalid && email.touched)}">
+                                                        <input class="input-label-field" placeholder="Email" type="email" id="email" name="email" [(ngModel)]="user.email" #email="ngModel"
+                                                            pattern="^[a-z0-9._\+]{2,}@[a-z]+\.(?!web)[a-z]{2,5}$" email required
+                                                        />
+                                                        <div class="error-block" *ngIf="email.invalid && (signupForm.submitted || email.touched)">
+                                                            <span *ngIf="email.errors.required">Please enter Email</span>
+                                                            <span *ngIf="!email.errors.required && email.errors.pattern">Please enter valid email</span>
                                                         </div>
+
+
                                                     </div>
-                                                    <div class="col-sm-6">
-                                                        <div [ngClass]="{'error-border':(password.invalid && signupForm.submitted || password.invalid && password.touched)}">
-                                                            <input class="input-label-field" placeholder="Password" type="password" id="password" minlength="8" tooltip="Password should have atleast one lowercase,one upper case,one number and one special character. Also length of password should be between 8 to 64" placement="bottom" name="password" pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#$@!%&*?])[A-Za-z\d#$@!%&*?]{8,64}" [(ngModel)]="user.password" #password="ngModel" required />
-    
-                                                            <div class="error-block" *ngIf="password.invalid && (signupForm.submitted || password.touched)"> 
-                                                                <span *ngIf="password.errors.required">Please enter Password</span>
-                                                                <span *ngIf="password.errors.pattern">Please enter valid password.
-                                                                <span *ngIf="password.errors.minlength && !password.errors.pattern">Password should be atleast 8 characters long.</span> 
-                                                                </span>
-                                                            </div>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <div [ngClass]="{'error-border':(password.invalid && signupForm.submitted || password.invalid && password.touched)}">
+                                                        <input class="input-label-field" placeholder="Password" type="password" id="password" minlength="8" tooltip="Password should have atleast one lowercase,one upper case,one number and one special character. Also length of password should be between 8 to 64"
+                                                            placement="bottom" name="password" pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#$@!%&*?])[A-Za-z\d#$@!%&*?]{8,64}"
+                                                            [(ngModel)]="user.password" #password="ngModel" required />
+
+                                                        <div class="error-block" *ngIf="password.invalid && (signupForm.submitted || password.touched)">
+                                                            <span *ngIf="password.errors.required">Please enter Password</span>
+                                                            <span *ngIf="password.errors.pattern">Please enter valid password.
+                                                                <span *ngIf="password.errors.minlength && !password.errors.pattern">Password should be atleast 8 characters long.</span>
+                                                            </span>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="row marginn0">
-                                                <div class="col-md-12 disply margin12">
-                                                    <div class="col-sm-6">
-                                                        <div [ngClass]="{'error-border':(confirmPassword.invalid && signupForm.submitted || confirmPassword.invalid && confirmPassword.touched)}">
-                                                            <input class="input-label-field" placeholder="Confirm Password" type="password" name="confirmPassword" id="confirmPassword" [(ngModel)]="user.confirmPassword" #confirmPassword="ngModel" required />
-                                                            <div class="error-block" *ngIf="confirmPassword.invalid && (signupForm.submitted || confirmPassword.touched)"> 
-                                                                <span *ngIf="confirmPassword.errors.required">Please enter Confirm Password</span>
-                                                            </div>
-                                                            <div class="error-block" *ngIf="user.confirmPassword!=user.password && !confirmPassword.invalid && (signupForm.submitted || confirmPassword.touched)"> 
-                                                                <span>Password and Confirm Password doesn't match</span>
-                                                            </div>
+                                        </div>
+                                        <div class="row marginn0">
+                                            <div class="col-md-12 disply margin12">
+                                                <div class="col-sm-6">
+                                                    <div [ngClass]="{'error-border':(confirmPassword.invalid && signupForm.submitted || confirmPassword.invalid && confirmPassword.touched)}">
+                                                        <input class="input-label-field" placeholder="Confirm Password" type="password" name="confirmPassword" id="confirmPassword"
+                                                            [(ngModel)]="user.confirmPassword" #confirmPassword="ngModel" required
+                                                        />
+                                                        <div class="error-block" *ngIf="confirmPassword.invalid && (signupForm.submitted || confirmPassword.touched)">
+                                                            <span *ngIf="confirmPassword.errors.required">Please enter Confirm Password</span>
+                                                        </div>
+                                                        <div class="error-block" *ngIf="user.confirmPassword!=user.password && !confirmPassword.invalid && (signupForm.submitted || confirmPassword.touched)">
+                                                            <span>Password and Confirm Password doesn't match</span>
                                                         </div>
                                                     </div>
-                                                    <div class="col-sm-6">
-                                                        <input class="input-label-field" placeholder="Referral Code (optional)" type="text" name="referralCode" id="referralCode" [(ngModel)]="user.referralCode" #referralCode="ngModel" />
-    
-                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <input class="input-label-field" placeholder="Referral Code (optional)" type="text" name="referralCode" id="referralCode"
+                                                        [(ngModel)]="user.referralCode" #referralCode="ngModel" />
+
                                                 </div>
                                             </div>
-                                            <!-- <div class="row pad-20">
+                                        </div>
+                                        <!-- <div class="row pad-20">
                                                 <div class="col-md-12">
                                                     <div style="margin: 0 auto; display: table; z-index:20;">
                                                         <re-captcha #ReCaptchaComponent name="recaptcha" [(ngModel)]="user.recaptcha" site_key={{privateKey}}  required></re-captcha>
@@ -211,119 +241,140 @@
                                                     </div>
                                                 </div>
                                             </div> -->
-                                            <div class="row marginn0">
-                                                <div class="col-md-12 btn-col">
+                                        <div class="row marginn0">
+                                            <div class="col-md-12 btn-col">
 
-                                                <button type="submit" (click)="signup(signupForm)" id="signUpBtn" #signUpBtn class="btn white-col"><img src="/assets/images/sendiconblue.png">
+                                                <button type="submit" (click)="signup(signupForm)" id="signUpBtn" #signUpBtn class="btn white-col">
+                                                    <img src="/assets/images/sendiconblue.png">
                                                 </button>
                                             </div>
-                                            </div>
-                                            <div class="row padding-8">
-                                                <span class="resendOtp color">
-                                                    <span>* By continuing you agree to our<a target="_blank" class="link"> Terms & Conditions</a></span>
+                                        </div>
+                                        <div class="row padding-8">
+                                            <span class="resendOtp color">
+                                                <span>* By continuing you agree to our
+                                                    <a target="_blank" class="link"> Terms & Conditions</a>
+                                                </span>
                                             </span>
-                                            </div>
-                                        </form>
-                                    </div>
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </ng-template>
-        </div>
-        <!-- End Of Login Modal Template -->
-        <!-- Start Of OTP Modal Template -->
-    
-        <div class="loginTemplate loginModal" #registerTemplate>
-            <ng-template #registerTemplate id="logintemplate">
-                <div class="loader-backdrop" *ngIf="spinner">
-                    <div class="loader"></div>
-                </div>
-                <div class="loginTemplateModal " (click)="onAnimation()">
-                    <div class="modal-body loginTemplateModal">
-                        <div class="fluid-container">
-                            <!-- Form-->
-                            <!--  <div class="img-post">
+            </div>
+        </ng-template>
+    </div>
+    <!-- End Of Login Modal Template -->
+    <!-- Start Of OTP Modal Template -->
+
+    <div class="loginTemplate loginModal" #registerTemplate>
+        <ng-template #registerTemplate id="logintemplate">
+            <div class="loader-backdrop" *ngIf="spinner">
+                <div class="loader"></div>
+            </div>
+            <div class="loginTemplateModal " (click)="onAnimation()">
+                <div class="modal-body loginTemplateModal">
+                    <div class="fluid-container">
+                        <!-- Form-->
+                        <!--  <div class="img-post">
                                 <img src="/assets/images/cardBG1.png">
                                 <h3 class="loginHeading top">LOGIN</h3>
                                 <h3 class="registerHeading">REGISTER</h3>
                             </div> -->
-                            <div class="form register">
-                                <div class="form-toggle view"></div>
-                                <div class="form-panel one bg-blue">
-                                    <div class="pull-right"><img class="left-menu" style="left: -2px;z-index: 10;" src="assets/images/icon-sign-in-small.png"></div>
-                                    <div class="headerImage"><img src="assets/images/icon-sign-up-large.png"></div>
-                                    <div class="form-content width100">
-    
-                                        <form #signupForm="ngForm" (ngSubmit)="signup(signupForm)" novalidate style="left: -4%;position: relative;">
-                                            <div class="row marginn0">
-                                                <div class="col-md-12 disply margin12">
-                                                    <div class="col-sm-6">
-                                                        <div [ngClass]="{'error-border':(firstName.invalid && signupForm.submitted || firstName.invalid && firstName.touched)}">
-                                                            <input class="input-label-field" placeholder="First Name" type="text" name="firstName" id="firstName" pattern="[A-Za-z]+" maxlength="50" minlength="3" [(ngModel)]="user.firstName" #firstName="ngModel" required />
-                                                            <div class="error-block" *ngIf="firstName.invalid && (signupForm.submitted || firstName.touched)">
-                                                                <span *ngIf="firstName.errors.required">Please enter First Name</span>
-                                                                <span *ngIf="firstName.errors.pattern">Please enter alphabetic character</span>
-                                                                <span *ngIf="firstName.errors.minlength && !firstName.errors.pattern">Please enter atleast 3 alphabetic characters.</span>
-                                                            </div>
+                        <div class="form register">
+                            <div class="form-toggle view"></div>
+                            <div class="form-panel one bg-blue">
+                                <div class="pull-right">
+                                    <img class="left-menu" style="left: -2px;z-index: 10;" src="assets/images/icon-sign-in-small.png">
+                                </div>
+                                <div class="headerImage">
+                                    <img src="assets/images/icon-sign-up-large.png">
+                                </div>
+                                <div class="form-content width100">
+
+                                    <form #signupForm="ngForm" (ngSubmit)="signup(signupForm)" novalidate style="left: -4%;position: relative;">
+                                        <div class="row marginn0">
+                                            <div class="col-md-12 disply margin12">
+                                                <div class="col-sm-6">
+                                                    <div [ngClass]="{'error-border':(firstName.invalid && signupForm.submitted || firstName.invalid && firstName.touched)}">
+                                                        <input class="input-label-field" placeholder="First Name" type="text" name="firstName" id="firstName" pattern="[A-Za-z]+"
+                                                            maxlength="50" minlength="3" [(ngModel)]="user.firstName" #firstName="ngModel"
+                                                            required />
+                                                        <div class="error-block" *ngIf="firstName.invalid && (signupForm.submitted || firstName.touched)">
+                                                            <span *ngIf="firstName.errors.required">Please enter First Name</span>
+                                                            <span *ngIf="firstName.errors.pattern">Please enter alphabetic character</span>
+                                                            <span *ngIf="firstName.errors.minlength && !firstName.errors.pattern">Please enter atleast 3 alphabetic characters.</span>
                                                         </div>
                                                     </div>
-                                                    <div class="col-sm-6">
-                                                        <div [ngClass]="{'error-border':(lastName.invalid && signupForm.submitted || lastName.invalid && lastName.touched)}">
-    
-                                                            <input class="input-label-field" placeholder="Last Name" type="text" maxlength="50" minlength="3" name="lastName" id="lastName" pattern="[A-Za-z]+" [(ngModel)]="user.lastName" #lastName="ngModel" required />
-    
-                                                            <div class="error-block" *ngIf="lastName.invalid && (signupForm.submitted || lastName.touched)">
-                                                                <span *ngIf="lastName.errors.required">Please enter Last Name</span>
-                                                                <span *ngIf="lastName.errors.pattern ">Please enter alphabetic character</span>
-                                                                <span *ngIf="lastName.errors.minlength && !lastName.errors.pattern">Please enter atleast 3 alphabetic characters.</span>
-                                                            </div>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <div [ngClass]="{'error-border':(lastName.invalid && signupForm.submitted || lastName.invalid && lastName.touched)}">
+
+                                                        <input class="input-label-field" placeholder="Last Name" type="text" maxlength="50" minlength="3" name="lastName" id="lastName"
+                                                            pattern="[A-Za-z]+" [(ngModel)]="user.lastName" #lastName="ngModel"
+                                                            required />
+
+                                                        <div class="error-block" *ngIf="lastName.invalid && (signupForm.submitted || lastName.touched)">
+                                                            <span *ngIf="lastName.errors.required">Please enter Last Name</span>
+                                                            <span *ngIf="lastName.errors.pattern ">Please enter alphabetic character</span>
+                                                            <span *ngIf="lastName.errors.minlength && !lastName.errors.pattern">Please enter atleast 3 alphabetic characters.</span>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="row marginn0">
-                                                <div class="col-md-12 disply margin12">
-                                                    <div class="col-sm-6">
-                                                        <div [ngClass]="{'error-border':(email.invalid && signupForm.submitted || email.invalid && email.touched)}">
-                                                            <input class="input-label-field" placeholder="Email" type="email" id="email" name="email" [(ngModel)]="user.email" #email="ngModel" pattern="^\w+([\.-]?\w+)@\w+([\.-]?\w+)(\.\w{2,3})+$" email required />
-                                                            <div class="error-block" *ngIf="email.invalid && (signupForm.submitted || email.touched)">
-                                                                <span *ngIf="email.errors.required">Please enter Email</span>
-                                                                <span *ngIf="!email.errors.required && email.errors.pattern">Please enter valid email</span>
-                                                            </div>
+                                        </div>
+                                        <div class="row marginn0">
+                                            <div class="col-md-12 disply margin12">
+                                                <div class="col-sm-6">
+                                                    <div [ngClass]="{'error-border':(email.invalid && signupForm.submitted || email.invalid && email.touched)}">
+                                                        <input class="input-label-field" placeholder="Email" type="email" id="email" name="email" [(ngModel)]="user.email" #email="ngModel"
+                                                            pattern="^\w+([\.-]?\w+)@\w+([\.-]?\w+)(\.\w{2,3})+$" email required
+                                                        />
+                                                        <div class="error-block" *ngIf="email.invalid && (signupForm.submitted || email.touched)">
+                                                            <span *ngIf="email.errors.required">Please enter Email</span>
+                                                            <span *ngIf="!email.errors.required && email.errors.pattern">Please enter valid email</span>
                                                         </div>
                                                     </div>
-                                                    <div class="col-sm-6">
-                                                        <div [ngClass]="{'error-border':(password.invalid && signupForm.submitted || password.invalid && password.touched)}">
-                                                            <input class="input-label-field" placeholder="Password" type="password" id="password" tooltip="Password should have atleast one lowercase,one upper case,one number and one special character. Also length of password should be between 8 to 64" placement="bottom" name="password" pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#$@!%&*?])[A-Za-z\d#$@!%&*?]{8,64}" [(ngModel)]="user.password" #password="ngModel" required />
-    
-                                                            <div class="error-block" *ngIf="password.invalid && (signupForm.submitted || password.touched)"> <span *ngIf="password.errors.required">Please enter Password</span>
-                                                                <!-- <div class="hintDiv" *ngIf="password.errors.pattern"> <span></span>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <div [ngClass]="{'error-border':(password.invalid && signupForm.submitted || password.invalid && password.touched)}">
+                                                        <input class="input-label-field" placeholder="Password" type="password" id="password" tooltip="Password should have atleast one lowercase,one upper case,one number and one special character. Also length of password should be between 8 to 64"
+                                                            placement="bottom" name="password" pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#$@!%&*?])[A-Za-z\d#$@!%&*?]{8,64}"
+                                                            [(ngModel)]="user.password" #password="ngModel" required />
+
+                                                        <div class="error-block" *ngIf="password.invalid && (signupForm.submitted || password.touched)">
+                                                            <span *ngIf="password.errors.required">Please enter Password</span>
+                                                            <!-- <div class="hintDiv" *ngIf="password.errors.pattern"> <span></span>
                                                                     </div> -->
-                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="row marginn0">
-                                                <div class="col-md-12 disply margin12">
-                                                    <div class="col-sm-6">
-                                                        <div [ngClass]="{'error-border':(confirmPassword.invalid && signupForm.submitted || confirmPassword.invalid && confirmPassword.touched)}">
-                                                            <input class="input-label-field" placeholder="Confirm Password" type="password" name="confirmPassword" id="confirmPassword" [(ngModel)]="user.confirmPassword" #confirmPassword="ngModel" required />
-                                                            <div class="error-block" *ngIf="confirmPassword.invalid && (signupForm.submitted || confirmPassword.touched)"> <span *ngIf="confirmPassword.errors.required">Please enter Confirm Password</span>
-                                                            </div>
-                                                            <div class="error-block" *ngIf="user.confirmPassword!=user.password && !confirmPassword.invalid"> <span>Password and Confirm Password doesn't match</span>
-                                                            </div>
+                                        </div>
+                                        <div class="row marginn0">
+                                            <div class="col-md-12 disply margin12">
+                                                <div class="col-sm-6">
+                                                    <div [ngClass]="{'error-border':(confirmPassword.invalid && signupForm.submitted || confirmPassword.invalid && confirmPassword.touched)}">
+                                                        <input class="input-label-field" placeholder="Confirm Password" type="password" name="confirmPassword" id="confirmPassword"
+                                                            [(ngModel)]="user.confirmPassword" #confirmPassword="ngModel" required
+                                                        />
+                                                        <div class="error-block" *ngIf="confirmPassword.invalid && (signupForm.submitted || confirmPassword.touched)">
+                                                            <span *ngIf="confirmPassword.errors.required">Please enter Confirm Password</span>
+                                                        </div>
+                                                        <div class="error-block" *ngIf="user.confirmPassword!=user.password && !confirmPassword.invalid">
+                                                            <span>Password and Confirm Password doesn't match</span>
                                                         </div>
                                                     </div>
-                                                    <div class="col-sm-6">
-                                                        <input class="input-label-field" placeholder="Referral Code (optional)" type="text" name="referralCode" id="referralCode" [(ngModel)]="user.referralCode" #referralCode="ngModel" />
-    
-                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <input class="input-label-field" placeholder="Referral Code (optional)" type="text" name="referralCode" id="referralCode"
+                                                        [(ngModel)]="user.referralCode" #referralCode="ngModel" />
+
                                                 </div>
                                             </div>
-                                            <!-- <div class="row pad-20">
+                                        </div>
+                                        <!-- <div class="row pad-20">
                                                 <div class="col-md-12">
                                                     <div style="margin: 0 auto; display: table;">
                                                         <re-captcha name="recaptcha" [(ngModel)]="user.recaptcha" site_key={{privateKey}} required></re-captcha>
@@ -332,51 +383,58 @@
                                                     </div>
                                                 </div>
                                             </div> -->
-                                            <div class="row btn-col">
-                                                <button type="submit" [disabled]="!signupForm.valid" id="signUpBtn" #signUpBtn class="btn white-col"><img src="/assets/images/sendiconblue.png">
-                                                </button>
-                                            </div>
-                                            <div class="row padding-8">
-                                                <span class="resendOtp color">
-                                                        <a target="_blank">* By continuing you agree to our Terms & Conditions</a>
-                                                </span>
-                                            </div>
-                                        </form>
-                                    </div>
+                                        <div class="row btn-col">
+                                            <button type="submit" [disabled]="!signupForm.valid" id="signUpBtn" #signUpBtn class="btn white-col">
+                                                <img src="/assets/images/sendiconblue.png">
+                                            </button>
+                                        </div>
+                                        <div class="row padding-8">
+                                            <span class="resendOtp color">
+                                                <a target="_blank">* By continuing you agree to our Terms & Conditions</a>
+                                            </span>
+                                        </div>
+                                    </form>
                                 </div>
-                                <!-- Second form -->
-    
-                                <div class="form-panel two whiteBg">
-                                    <div class="headerImage width0"><img src="assets/images/icon-sign-in-large.png"></div>
-                                    <div class="form-content" style="left:50px;">
-                                        <form #signinForm="ngForm" (ngSubmit)="signin(signinForm)" novalidate>
-                                            <div class="row marginn0">
-                                                <div class="col-md-12">
-                                                    <div [ngClass]="{'error-border':(emailId.invalid && signinForm.submitted || emailId.invalid && emailId.touched)}">
-                                                        <div class="margin12">
-                                                            <input class="input-label-field" placeholder="Email" type="email" name="emailId" [(ngModel)]="loginUser.emailId" #emailId="ngModel" pattern="^\w+([\.-]?\w+)@\w+([\.-]?\w+)(\.\w{2,3})+$" required email />
-                                                        </div>
-                                                        <div class="error-block" *ngIf="emailId.invalid && (signinForm.submitted || emailId.touched)">
-                                                            <span *ngIf="emailId.errors.required">Please enter Email</span>
-                                                            <span *ngIf="!emailId.errors.required && email.errors.email">Please enter valid email</span>
-                                                        </div>
+                            </div>
+                            <!-- Second form -->
+
+                            <div class="form-panel two whiteBg">
+                                <div class="headerImage width0">
+                                    <img src="assets/images/icon-sign-in-large.png">
+                                </div>
+                                <div class="form-content" style="left:50px;">
+                                    <form #signinForm="ngForm" (ngSubmit)="signin(signinForm)" novalidate>
+                                        <div class="row marginn0">
+                                            <div class="col-md-12">
+                                                <div [ngClass]="{'error-border':(emailId.invalid && signinForm.submitted || emailId.invalid && emailId.touched)}">
+                                                    <div class="margin12">
+                                                        <input class="input-label-field" placeholder="Email" type="email" name="emailId" [(ngModel)]="loginUser.emailId" #emailId="ngModel"
+                                                            pattern="^\w+([\.-]?\w+)@\w+([\.-]?\w+)(\.\w{2,3})+$" required email
+                                                        />
+                                                    </div>
+                                                    <div class="error-block" *ngIf="emailId.invalid && (signinForm.submitted || emailId.touched)">
+                                                        <span *ngIf="emailId.errors.required">Please enter Email</span>
+                                                        <span *ngIf="!emailId.errors.required && email.errors.email">Please enter valid email</span>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="row marginn0">
-                                                <div class="col-md-12">
-                                                    <div [ngClass]="{'error-border':(password.invalid && signinForm.submitted || password.invalid && password.touched)}">
-                                                        <div class="margin12">
-                                                            <input class="input-label-field" type="password" id="passwordId" placeholder="Password" name="password" minlength="8" tooltip="Password should have atleast one lowercase,one upper case,one number and one special character. Also length of password should be between 8 to 64" placement="bottom" pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#$@!%&*?])[A-Za-z\d#$@!%&*?]{8,64}" [(ngModel)]="loginUser.password" #passwordId="ngModel" required />
-                                                        </div>
-                                                        <div class="error-block" *ngIf="passwordId.invalid && (signinForm.submitted || passwordId.touched)">
-                                                            <span *ngIf="passwordId.errors.required">Please enter Password</span>
-                                                            <span *ngIf="passwordId.errors.minlength && !passwordId.errors.pattern">Password should be of atleast 8 character long.</span>
-                                                        </div>
+                                        </div>
+                                        <div class="row marginn0">
+                                            <div class="col-md-12">
+                                                <div [ngClass]="{'error-border':(password.invalid && signinForm.submitted || password.invalid && password.touched)}">
+                                                    <div class="margin12">
+                                                        <input class="input-label-field" type="password" id="passwordId" placeholder="Password" name="password" minlength="8" tooltip="Password should have atleast one lowercase,one upper case,one number and one special character. Also length of password should be between 8 to 64"
+                                                            placement="bottom" pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#$@!%&*?])[A-Za-z\d#$@!%&*?]{8,64}"
+                                                            [(ngModel)]="loginUser.password" #passwordId="ngModel" required />
+                                                    </div>
+                                                    <div class="error-block" *ngIf="passwordId.invalid && (signinForm.submitted || passwordId.touched)">
+                                                        <span *ngIf="passwordId.errors.required">Please enter Password</span>
+                                                        <span *ngIf="passwordId.errors.minlength && !passwordId.errors.pattern">Password should be of atleast 8 character long.</span>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <!-- <div class="row marginn0">
+                                        </div>
+                                        <!-- <div class="row marginn0">
                                                 <div class="col-md-12">
                                                     <div class="recpatchaModal margin30">
                                                         <re-captcha name="recaptcha" [(ngModel)]="loginUser.recaptcha" site_key={{privateKey}} required></re-captcha>
@@ -385,160 +443,242 @@
                                                     </div>
                                                 </div>
                                             </div> -->
-                                            <div class="row marginn0">
-                                                <div class="col-md-12 btn-col">
-                                                    <button type="submit" [disabled]="!signinForm.valid" id="signInBtn" #signInBtn class="btn butn-col"><img src="/assets/images/signInBtn.png">
-                                                    </button>
-                                                </div>
+                                        <div class="row marginn0">
+                                            <div class="col-md-12 btn-col">
+                                                <button type="submit" [disabled]="!signinForm.valid" id="signInBtn" #signInBtn class="btn butn-col">
+                                                    <img src="/assets/images/signInBtn.png">
+                                                </button>
                                             </div>
-                                            <div class="row marginn0">
-                                                <div class="col-md-12 text-center padding-8">
-                                                    <span class="resendOtp">
-                                                 <a target="_blank"  (click)="openModal(forgetPassword)" >Forgot Password?</a>
+                                        </div>
+                                        <div class="row marginn0">
+                                            <div class="col-md-12 text-center padding-8">
+                                                <span class="resendOtp">
+                                                    <a target="_blank" (click)="openModal(forgetPassword)">Forgot Password?</a>
                                                 </span>
-                                                </div>
                                             </div>
-                                        </form>
-                                    </div>
-    
+                                        </div>
+                                    </form>
                                 </div>
+
                             </div>
                         </div>
                     </div>
                 </div>
-            </ng-template>
-        </div>
-        
-    
-        <ng-template #otptemplate class="loginModal">
-            <div class="loader-backdrop" *ngIf="spinner">
-                <div class="loader"></div>
             </div>
-            <div class="modal-body">
-                <div class="fluid-container">
-                    <!-- Form-->
-                    <!-- <div class="img-post">
+        </ng-template>
+    </div>
+
+    <!-- write here mobile number -->
+    <ng-template #mobileNumber class="loginModal">
+        <div class="loader-backdrop" *ngIf="spinner">
+            <div class="loader"></div>
+        </div>
+        <div class="modal-body">
+            <div class="fluid-container">
+                <!-- Form-->
+                <!-- <div class="img-post">
+                <img src="/assets/images/cardBG1.png">
+                <h3 class="loginHeading top">OTP</h3>
+            </div> -->
+                <div class="form">
+                    <div class="form-toggle"></div>
+                    <div class="form-panel one">
+                        <h5 class="OTPPassHead">Mobile Number</h5>
+                        <div class="form-content  pad-top-15">
+                            <form #mobileNumberForm="ngForm" (ngSubmit)="submitMobile(mobileNumberForm)">
+                                <p class="OTPMsg">Please enter your mobile number to verify.</p>
+                                <!-- <div class="row input_label">
+                                <input class="radioOption" type="number" placeholder="OTP" name="otp">
+                            </div> -->
+                                <section>
+                                    <option name="countryCode" value="" selected disabled>Select Country Code</option>
+                                    <option name="countryCode" value="+91">India (+91)</option>
+                                    <option name="countryCode" value="+1">USA (+1)</option>
+                                </section>
+                                <div class="input_label" [ngClass]="{'error-border':(mobileNumberInput.invalid && mobileNumberInput.submitted || mobileNumberInput.invalid && mobileNumberInput.touched)}">
+
+                                    <!-- <input class="radioOption" pattern="^[0-9]*$" maxlength="10" type="text" name="mobileNumberInput" [(ngModel)]="mobileNumberInput" #mobileNumberInput="ngModel"
+                                        placeholder="Mobile Number" required> -->
+                                </div>
+                                <!-- <div class="row" *ngIf="showInvalidOtp==true">
+                                    <span class="error-block">{{errorOTP}}</span>
+                                </div> -->
+                                <!-- <div class="row">
+                                    <span class="resendOtp">
+                                        <a (click)="submitResendOtp()">Resend OTP</a>
+                                    </span>
+                                </div> -->
+                                <div class="error-block" *ngIf="mobileNumberInput.invalid && (mobileNumberForm.submitted || mobileNumberInput.touched)">
+                                    <span *ngIf="mobileNumberInput.errors.required">Please enter Mobile Number</span>
+                                    <span *ngIf="mobileNumberInput.errors.pattern">Please enter correct Mobile Number.</span>
+
+                                    <span *ngIf="mobileNumberInput.errors.minlength">Please enter correct Mobile Number. Allow numeric digit only.</span>
+                                </div>
+                                <div class="row btn-col">
+                                    <button [disabled]="!OtpForm.valid" type="submit" class="btn butn-col">
+                                        <img src="/assets/images/signInBtn.png">
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ng-template>
+    <!-- End Of OTP Modal Template -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- write here otp -->
+    <ng-template #otptemplate class="loginModal">
+        <div class="loader-backdrop" *ngIf="spinner">
+            <div class="loader"></div>
+        </div>
+        <div class="modal-body">
+            <div class="fluid-container">
+                <!-- Form-->
+                <!-- <div class="img-post">
                         <img src="/assets/images/cardBG1.png">
                         <h3 class="loginHeading top">OTP</h3>
                     </div> -->
-                    <div class="form">
-                        <div class="form-toggle"></div>
-                        <div class="form-panel one">
-                            <h5 class="OTPPassHead">OTP </h5>
-                            <div class="form-content  pad-top-15">
-                                <form #OtpForm="ngForm" (ngSubmit)="submitOTP(OtpForm)">
-                                    <p class="OTPMsg">Please enter OTP sent on your registered email.</p>
-                                    <!-- <div class="row input_label">
+                <div class="form">
+                    <div class="form-toggle"></div>
+                    <div class="form-panel one">
+                        <h5 class="OTPPassHead">OTP </h5>
+                        <div class="form-content  pad-top-15">
+                            <form #OtpForm="ngForm" (ngSubmit)="submitOTP(OtpForm)">
+                                <p class="OTPMsg">Please enter OTP sent on your registered email.</p>
+                                <!-- <div class="row input_label">
                                         <input class="radioOption" type="number" placeholder="OTP" name="otp">
                                     </div> -->
-                                    <div class="input_label" [ngClass]="{'error-border':(otp.invalid && OtpForm.submitted || otp.invalid && otp.touched)}">
-                                        <input class="radioOption" pattern="^[0-9]*$" maxlength="6" type="text" name="otp" [(ngModel)]="OTP" #otp="ngModel" (click)="invalidOTPValidation(OTP)" placeholder="ENTER OTP" required>
-                                    </div>
-                                    <div class="row" *ngIf="showInvalidOtp==true">
-                                        <span class="error-block">{{errorOTP}}</span>
-                                    </div>
-                                    <div class="row">
-                                        <span class="resendOtp"><a (click)="submitResendOtp()">Resend OTP</a></span>
-                                    </div>
-                                    <div class="error-block" *ngIf="otp.invalid && (OtpForm.submitted || otp.touched)">
-                                        <span *ngIf="otp.errors.required">Please enter OTP</span>
-                                        <span *ngIf="otp.errors.pattern">Please enter correct OTP.</span>
-                                       
-                                        <span *ngIf="otp.errors.minlength">Please enter correct OTP.Allow numeric digit only.</span>
-                                    </div>
-                                    <div class="row btn-col">
-                                        <button [disabled]="!OtpForm.valid" type="submit" class="btn butn-col"><img src="/assets/images/signInBtn.png">
-                                        </button>
-                                    </div>
-                                </form>
-                            </div>
+                                <div class="input_label" [ngClass]="{'error-border':(otp.invalid && OtpForm.submitted || otp.invalid && otp.touched)}">
+                                    <input class="radioOption" pattern="^[0-9]*$" maxlength="6" type="text" name="otp" [(ngModel)]="OTP" #otp="ngModel" (click)="invalidOTPValidation(OTP)"
+                                        placeholder="ENTER OTP" required>
+                                </div>
+                                <div class="row" *ngIf="showInvalidOtp==true">
+                                    <span class="error-block">{{errorOTP}}</span>
+                                </div>
+                                <div class="row">
+                                    <span class="resendOtp">
+                                        <a (click)="submitResendOtp()">Resend OTP</a>
+                                    </span>
+                                </div>
+                                <div class="error-block" *ngIf="otp.invalid && (OtpForm.submitted || otp.touched)">
+                                    <span *ngIf="otp.errors.required">Please enter OTP</span>
+                                    <span *ngIf="otp.errors.pattern">Please enter correct OTP.</span>
+
+                                    <span *ngIf="otp.errors.minlength">Please enter correct OTP.Allow numeric digit only.</span>
+                                </div>
+                                <div class="row btn-col">
+                                    <button [disabled]="!OtpForm.valid" type="submit" class="btn butn-col">
+                                        <img src="/assets/images/signInBtn.png">
+                                    </button>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
             </div>
-        </ng-template>
-        <!-- End Of OTP Modal Template -->
-    
-        <!-- Start Of Forget Password Modal Template -->
-        <ng-template #forgetPassword class="loginModal"  >
-            <div class="loader-backdrop" *ngIf="spinner">
-                <div class="loader"></div>
-            </div>
-            <div class="modal-body">
-                <div class="fluid-container">
-                    <!-- Form-->
-                    <!--  <div class="img-post">
+        </div>
+    </ng-template>
+    <!-- End Of OTP Modal Template -->
+
+    <!-- Start Of Forget Password Modal Template -->
+    <ng-template #forgetPassword class="loginModal">
+        <div class="loader-backdrop" *ngIf="spinner">
+            <div class="loader"></div>
+        </div>
+        <div class="modal-body">
+            <div class="fluid-container">
+                <!-- Form-->
+                <!--  <div class="img-post">
                         <img src="/assets/images/cardBG1.png">
                         <h3 class="loginHeading top">FORGET PASSWORD</h3>
                     </div> -->
-                    <div class="form">
-                        <div class="form-toggle"></div>
-                        <div class="forget-panel">
-                            <h5 class="forgetPassHead">Forgot Password ? </h5>
-                            <div class="form-content">
-                                <form #forgetForm="ngForm" (ngSubmit)="submitforgetPassword(forgetForm)">
-                                    <p class="forgetMsg">You can reset your password via two modes!</p>
-                                    <ul class="radio-option">
-                                        <li>
-                                            <input type="radio" value="mobile" (change)="validateForgetPassword(forgetForm)" class="forgetPass" id="mobile" checked name="forgetPass">
-                                            <label>Mobile</label>
-                                            <div class="bullet">
-                                                <div class="line zero"></div>
-                                                <div class="line one"></div>
-                                                <div class="line two"></div>
-                                                <div class="line three"></div>
-                                                <div class="line four"></div>
-                                                <div class="line five"></div>
-                                                <div class="line six"></div>
-                                                <div class="line seven"></div>
-                                            </div>
-                                        </li>
-                                        <div class="row">
-                                            <div class="input_label" [ngClass]="{'error-border':(mobile.invalid && forgetForm.submitted || mobile.invalid && mobile.touched)}">
-                                                <input class="radioOption" [disabled]="mobileDisabled" type="number" id="mobileNo" name="mobile" [(ngModel)]="data.mobile" #mobile="ngModel" placeholder="ENTER MOBILE NUMBER">
-                                            </div>
-                                            <div class="error-block" *ngIf="mobile.invalid && (forgetForm.submitted || mobile.touched)"> <span *ngIf="mobile.errors.required">Please enter Mobile Number</span>
-                                            </div>
+                <div class="form">
+                    <div class="form-toggle"></div>
+                    <div class="forget-panel">
+                        <h5 class="forgetPassHead">Forgot Password ? </h5>
+                        <div class="form-content">
+                            <form #forgetForm="ngForm" (ngSubmit)="submitforgetPassword(forgetForm)">
+                                <p class="forgetMsg">You can reset your password via two modes!</p>
+                                <ul class="radio-option">
+                                    <li>
+                                        <input type="radio" value="mobile" (change)="validateForgetPassword(forgetForm)" class="forgetPass" id="mobile" checked name="forgetPass">
+                                        <label>Mobile</label>
+                                        <div class="bullet">
+                                            <div class="line zero"></div>
+                                            <div class="line one"></div>
+                                            <div class="line two"></div>
+                                            <div class="line three"></div>
+                                            <div class="line four"></div>
+                                            <div class="line five"></div>
+                                            <div class="line six"></div>
+                                            <div class="line seven"></div>
                                         </div>
-                                        <li>
-                                            <input type="radio" value="email" (change)="validateForgetPassword(forgetForm)" id="email" class="forgetPass" name="forgetPass">
-                                            <label>Email</label>
-                                            <div class="bullet">
-                                                <div class="line zero"></div>
-                                                <div class="line one"></div>
-                                                <div class="line two"></div>
-                                                <div class="line three"></div>
-                                                <div class="line four"></div>
-                                                <div class="line five"></div>
-                                                <div class="line six"></div>
-                                                <div class="line seven"></div>
-                                            </div>
-                                        </li>
-                                        <div class="row">
-                                            <div class="input_label" [ngClass]="{'error-border':(email.invalid && forgetForm.submitted || email.invalid && email.touched)}">
-                                                <input class="radioOption" [disabled]="emailDisabled" type="email" name="email" [(ngModel)]="data.email" pattern="^[a-z0-9._\+]{2,}@[a-z]+\.(?!web)[a-z]{2,5}$" #email="ngModel" email placeholder="ENTER EMAIL" required>
-                                            </div>
-                                            <div class="error-block" *ngIf="email.invalid && (forgetForm.submitted || email.touched)"> <span *ngIf="email.errors.required">Please enter Email</span>
-                                                <span *ngIf="!email.errors.required && email.errors.pattern">Please enter valid email</span>
-                                            </div>
+                                    </li>
+                                    <div class="row">
+                                        <div class="input_label" [ngClass]="{'error-border':(mobile.invalid && forgetForm.submitted || mobile.invalid && mobile.touched)}">
+                                            <input class="radioOption" [disabled]="mobileDisabled" type="number" id="mobileNo" name="mobile" [(ngModel)]="data.mobile"
+                                                #mobile="ngModel" placeholder="ENTER MOBILE NUMBER">
                                         </div>
-                                    </ul>
-                                    <div class="row btn-col">
-                                        <button [disabled]="!forgetForm.valid" type="submit" class="btn white-col"><img src="/assets/images/sendiconblue.png">
-                                        </button>
+                                        <div class="error-block" *ngIf="mobile.invalid && (forgetForm.submitted || mobile.touched)">
+                                            <span *ngIf="mobile.errors.required">Please enter Mobile Number</span>
+                                        </div>
                                     </div>
-                                </form>
-                            </div>
+                                    <li>
+                                        <input type="radio" value="email" (change)="validateForgetPassword(forgetForm)" id="email" class="forgetPass" name="forgetPass">
+                                        <label>Email</label>
+                                        <div class="bullet">
+                                            <div class="line zero"></div>
+                                            <div class="line one"></div>
+                                            <div class="line two"></div>
+                                            <div class="line three"></div>
+                                            <div class="line four"></div>
+                                            <div class="line five"></div>
+                                            <div class="line six"></div>
+                                            <div class="line seven"></div>
+                                        </div>
+                                    </li>
+                                    <div class="row">
+                                        <div class="input_label" [ngClass]="{'error-border':(email.invalid && forgetForm.submitted || email.invalid && email.touched)}">
+                                            <input class="radioOption" [disabled]="emailDisabled" type="email" name="email" [(ngModel)]="data.email" pattern="^[a-z0-9._\+]{2,}@[a-z]+\.(?!web)[a-z]{2,5}$"
+                                                #email="ngModel" email placeholder="ENTER EMAIL" required>
+                                        </div>
+                                        <div class="error-block" *ngIf="email.invalid && (forgetForm.submitted || email.touched)">
+                                            <span *ngIf="email.errors.required">Please enter Email</span>
+                                            <span *ngIf="!email.errors.required && email.errors.pattern">Please enter valid email</span>
+                                        </div>
+                                    </div>
+                                </ul>
+                                <div class="row btn-col">
+                                    <button [disabled]="!forgetForm.valid" type="submit" class="btn white-col">
+                                        <img src="/assets/images/sendiconblue.png">
+                                    </button>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
             </div>
-        </ng-template>
+        </div>
+    </ng-template>
 
-        <!-- End Of Forget Password Modal Template -->
-    
-        <!-- Start Of  Account Recovery Modal Template -->
-    
-        <!-- End Of Forget Password Modal Template -->
-        <div class="clearfix"></div>
-    </div>
+    <!-- End Of Forget Password Modal Template -->
+
+    <!-- Start Of  Account Recovery Modal Template -->
+
+    <!-- End Of Forget Password Modal Template -->
+    <div class="clearfix"></div>
+</div>

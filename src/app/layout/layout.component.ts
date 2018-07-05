@@ -34,7 +34,7 @@ export class LayoutComponent implements OnInit {
   let token= localStorage.getItem("token");
   console.log("Token", token);
   let email= JSON.parse(localStorage.getItem("email"));
-  this.router.navigate(['/home']);
+  // this.router.navigate(['/home']);
     this.dashboardService.logout(email).subscribe(
       successData => {
          this.getLogoutData=successData;

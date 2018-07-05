@@ -16,6 +16,15 @@ export class HeaderService {
         return this.http.post("http://180.151.84.102/api-auth/api/v1/login",user);
     }
 
+
+    mobileNumber(user) {
+        return this.http.post("http://180.151.84.102/api-auth/api/v1/login",user);
+    }
+
+
+
+
+
     forgetApi(through,data){
         console.log(data);
        
