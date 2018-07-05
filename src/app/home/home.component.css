@@ -146,7 +146,7 @@
 .carousel1{
   width: 107px;
   height: 79px;
-  background-image: url("../../assets/images/banner-mobile.png");
+  /* background-image: url("../../assets/images/banner-mobile.png"); */
   background-repeat: no-repeat;
 }
 .padImage1{
@@ -156,7 +156,7 @@
 .carousel2{
   width: 168px;
   height: 150px;
-  background-image: url("../../assets/images/banner-ipad.png");
+  /* background-image: url("../../assets/images/banner-ipad.png"); */
   background-repeat: no-repeat;
 }
 .padImage2{
@@ -165,7 +165,7 @@
 .carousel3{
   width: 406px;
   height: 367px;
-  background-image: url("../../assets/images/banner-desktop.png");
+  /* background-image: url("../../assets/images/banner-desktop.png"); */
   background-repeat: no-repeat;
 }
 .padImage3{
@@ -191,7 +191,7 @@
 .carousel4{
    width: 317px;
   height: 192px;
-  background-image: url("../../assets/images/banner-laptop.png");
+  /* background-image: url("../../assets/images/banner-laptop.png"); */
   background-repeat: no-repeat;
 }
 
@@ -311,7 +311,7 @@
 
 .bitexSection {
   width: 100%;
-    background-image: url(/assets/images/Banner.jpg);
+    /* background-image: url(/assets/images/Banner.jpg); */
     margin-top: 90px;
     background-size: 100%;
     position: relative;
@@ -1662,7 +1662,7 @@ p.testThree{
     color: #ffffff;
     line-height: 37px;
 }
-.solutionsSection[_ngcontent-c1] {
+.solutionsSection {
     width: 100%;
     background-image: url(/assets/images/solution-bg.jpg);
     height: 877px;
