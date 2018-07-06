@@ -72,7 +72,7 @@
                             </div> -->
                         <div class="form">
                             <div class="form-toggle"></div>
-                            <div class="form-panel one">
+                            <div class="form-panel one" style="background-image: url(assets/images/sign-in-bg.jpg)">
                                 <div class="headerImage width80">
                                     <img src="assets/images/icon-sign-in-large.png">
                                 </div>
@@ -284,7 +284,7 @@
                             </div> -->
                         <div class="form register">
                             <div class="form-toggle view"></div>
-                            <div class="form-panel one bg-blue">
+                            <div class="form-panel one bg-blue"  style="background-image: url(assets/images/sign-in-bg.jpg)">
                                 <div class="pull-right">
                                     <img class="left-menu" style="left: -2px;z-index: 10;" src="assets/images/icon-sign-in-small.png">
                                 </div>
@@ -482,7 +482,7 @@
             </div> -->
                 <div class="form">
                     <div class="form-toggle"></div>
-                    <div class="form-panel one">
+                    <div class="form-panel one"  style="background-image: url(assets/images/sign-in-bg.jpg)">
                         <h5 class="OTPPassHead">Mobile Number</h5>
                         <div class="form-content  pad-top-15">
                             <form #mobileNumberForm="ngForm" (ngSubmit)="submitMobile(mobileNumberForm)">
@@ -495,11 +495,11 @@
                                     <option name="countryCode" value="+91">India (+91)</option>
                                     <option name="countryCode" value="+1">USA (+1)</option>
                                 </section>
-                                <div class="input_label" [ngClass]="{'error-border':(mobileNumberInput.invalid && mobileNumberInput.submitted || mobileNumberInput.invalid && mobileNumberInput.touched)}">
-
-                                    <!-- <input class="radioOption" pattern="^[0-9]*$" maxlength="10" type="text" name="mobileNumberInput" [(ngModel)]="mobileNumberInput" #mobileNumberInput="ngModel"
-                                        placeholder="Mobile Number" required> -->
-                                </div>
+                                <!-- <div class="input_label" [ngClass]="{'error-border':(mobileNumberInput.invalid && mobileNumberInput.submitted || mobileNumberInput.invalid && mobileNumberInput.touched)}">
+ -->
+                                <input class="radioOption" pattern="^[0-9]*$" maxlength="10" type="text" name="mobileNumberInput" [(ngModel)]="mobileNumberInput"
+                                    #mobileNum="ngModel" placeholder="Mobile Number" required>
+                                <!-- </div> -->
                                 <!-- <div class="row" *ngIf="showInvalidOtp==true">
                                     <span class="error-block">{{errorOTP}}</span>
                                 </div> -->
@@ -508,12 +508,12 @@
                                         <a (click)="submitResendOtp()">Resend OTP</a>
                                     </span>
                                 </div> -->
-                                <div class="error-block" *ngIf="mobileNumberInput.invalid && (mobileNumberForm.submitted || mobileNumberInput.touched)">
+                                <!-- <div class="error-block" *ngIf="mobileNumberInput.invalid && (mobileNumberForm.submitted || mobileNumberInput.touched)">
                                     <span *ngIf="mobileNumberInput.errors.required">Please enter Mobile Number</span>
                                     <span *ngIf="mobileNumberInput.errors.pattern">Please enter correct Mobile Number.</span>
 
                                     <span *ngIf="mobileNumberInput.errors.minlength">Please enter correct Mobile Number. Allow numeric digit only.</span>
-                                </div>
+                                </div> -->
                                 <div class="row btn-col">
                                     <button [disabled]="!OtpForm.valid" type="submit" class="btn butn-col">
                                         <img src="/assets/images/signInBtn.png">
@@ -554,7 +554,7 @@
                     </div> -->
                 <div class="form">
                     <div class="form-toggle"></div>
-                    <div class="form-panel one">
+                    <div class="form-panel one"  style="background-image: url(assets/images/sign-in-bg.jpg)">
                         <h5 class="OTPPassHead">OTP </h5>
                         <div class="form-content  pad-top-15">
                             <form #OtpForm="ngForm" (ngSubmit)="submitOTP(OtpForm)">
