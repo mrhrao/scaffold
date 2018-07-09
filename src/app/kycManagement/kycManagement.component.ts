@@ -34,6 +34,12 @@ export class KycManagementComponent implements OnInit {
 
  constructor(private kycManagement:KycManagementService){}
 
+ ngOnInit(){
+     this.user.gender = "MALE";
+     this.user.residence = "india";
+     this.formLoad();
+ }
+
   nationalityChange(fileInput: any){
     this.file = fileInput.target.files[0];
      if((this.file.type=="image/jpeg" || this.file.type=="image/png" || this.file.type=="application/pdf") &&(this.file.size<=2097152)){
@@ -142,9 +148,9 @@ formLoad(){
 });
 }
 
-ngOnInit(){
-this.formLoad();
-//this.getCustomerDetails();
-}
+// ngOnInit(){
+
+// //this.getCustomerDetails();
+// }
 
 }

@@ -18,7 +18,7 @@
                                 <form #kycForm="ngForm" (ngSubmit)="submittKyc(kycForm)" novalidate>
                                     <div class="form-bottom">
                                         <div class="row">
-                                            <div class="form-group col-md-6 col-sm-6">
+                                            <div class="form-group col-md-6 col-sm-6 col-xs-12">
                                                 <div [ngClass]="{'error-border':(firstName.invalid && kycForm.submitted || firstName.invalid && firstName.touched)}">
                                                     <input class="form-control input-label-field" placeholder="First Name" type="text" name="firstName" id="firstName" pattern="[A-Za-z]+" maxlength="50" minlength="3" [(ngModel)]="user.firstName" #firstName="ngModel" required />
                                                     <div class="error-block" *ngIf="firstName.invalid && (kycForm.submitted || firstName.touched)">
@@ -28,7 +28,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="form-group col-md-6 col-sm-6">
+                                            <div class="form-group col-md-6 col-sm-6 col-xs-12">
                                                 <div [ngClass]="{'error-border':(lastName.invalid && kycForm.submitted || lastName.invalid && lastName.touched)}">
     
                                                     <input class="form-control input-label-field" placeholder="Last Name" type="text" maxlength="50" minlength="3" name="lastName" id="lastName" pattern="[A-Za-z]+" [(ngModel)]="user.lastName" #lastName="ngModel" required />
@@ -44,7 +44,7 @@
     
                                         <div class="form-group" style="margin-bottom:3px;">
                                             <div class="row">
-                                                <div class="form-group col-md-6 col-sm-6">
+                                                <div class="form-group col-md-6 col-sm-6 col-xs-12">
                                                     <div [ngClass]="{'error-border':(nationality.invalid && kycForm.submitted || nationality.invalid && nationality.touched)}">
     
                                                         <input class="form-control input-label-field" placeholder="Nationality" type="text" maxlength="50" minlength="3" name="nationality" id="nationality" pattern="[A-Za-z]+" [(ngModel)]="user.nationality" #nationality="ngModel" required />
@@ -57,33 +57,31 @@
                                                     </div>
     
                                                 </div>
-                                                <div class="form-group col-md-6 col-sm-6">
-                                                    <input type="text" class="form-control" placeholder="Contact Number" id="contact_number">
+                                                <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                                    <input type="text" class="form-control" name="contact_number" placeholder="Contact Number" id="contact_number">
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="form-group" style="margin-bottom:3px;">
                                             <div class="row">
                                                 <div class="form-group col-md-6 col-sm-6">
-                                                    <select class="form-control" placeholder="Country Of Residence">
-                                                        <option>Country Of Residence</option>
-                                                        <option>00</option>
-                                                        <option>00</option>
-                                                        <option>00</option>
-                                                        <option>00</option>
+                                                    <select class="form-control" name="residence" [(ngModel)]="user.residence">
+                                                        <option value="india">India</option>
+                                                        <option value="australia">Australia</option>
+                                                        <option value="africa">Africa</option>
+                                                        <option value="zimbambe">Zimbambe</option>
                                                     </select>
                                                 </div>
-                                                <div class="form-group col-md-6 col-sm-6">
-                                                    <input type="text" class="form-control" placeholder="Date Of Birth" id="dob">
+                                                <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                                    <input type="date" class="form-control" name="dob" placeholder="Date Of Birth" id="dob" [(ngModel)]="user.dob">
                                                 </div>
                                             </div>
                                         </div>
     
                                         <div class="form-group">
-                                            <select class="form-control">
-                                                <option>Gender</option>
-                                                <option>Male</option>
-                                                <option>Female</option>
+                                            <select class="form-control" name="gender" [(ngModel)]="user.gender">
+                                                <option value="MALE">Male</option>
+                                                <option value="FEMALE">Female</option>
                                             </select>
                                         </div>
     

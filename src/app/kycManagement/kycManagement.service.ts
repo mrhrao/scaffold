@@ -11,6 +11,8 @@ export class KycManagementService {
     constructor(private http:Http) {
  }
 
+ 
+
 
 //  getCustomerId(user){
 //     let url ='https://p3.cynopsis.co/artemis_bitexglobal_uat/api/individual_customer_report';
