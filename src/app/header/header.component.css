@@ -552,7 +552,7 @@ input[type=number]::-webkit-outer-spin-button {
   z-index: 15;
   position: relative;
   /*background: #3e94dc;*/
-  background-image: url(/assets/images/sign-in-bg.jpg);
+  /* background-image: url(/assets/images/sign-in-bg.jpg); */
   background-repeat: no-repeat;
   background-size: cover;
   width: 850px;
@@ -775,7 +775,7 @@ input[type=number]::-webkit-outer-spin-button {
   height: 550px;
    padding: 40px 45px;
   /* background-color: #3e94dc;*/
-  background-image: url(/assets/images/sign-up-bg.jpg);
+  /* background-image: url(/assets/images/sign-up-bg.jpg); */
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -811,7 +811,7 @@ input[type=number]::-webkit-outer-spin-button {
   top: 0;
  left: 90%;
  padding: 0px !important;
-  background-image: url(/assets/images/sign-up-bg.jpg);
+  /* background-image: url(/assets/images/sign-up-bg.jpg); */
   background-repeat: no-repeat;
   background-size: cover;
   width: 100%;
@@ -953,7 +953,7 @@ input[type=number]::-webkit-outer-spin-button {
 .butn-col{
     z-index: 99;
     background-color: #26a2e2;
-    padding: 7px 50px;
+    padding: 20px 60px;
     border-radius: 30px;
 }
 .butn-col:hover,
@@ -961,14 +961,18 @@ input[type=number]::-webkit-outer-spin-button {
 .butn-col:focus{
     z-index: 99;
     background-color: #26a2e2;
-    padding: 7px 50px;
+    padding: 20px 60px;
     border-radius: 30px;
+}
+.btn-img{
+  background-position: center;
+  background-repeat: no-repeat;
 }
 .white-col,
 .white-col:hover{
     z-index: 99;
     background-color: #fff;
-    padding: 7px 50px;
+    padding: 20px 60px;
     opacity: 1;
     border-radius: 30px;
 }
@@ -981,7 +985,7 @@ input[type=number]::-webkit-outer-spin-button {
     z-index: 99;
     background-color: #fff !important;
     border-color: #26a2e2 !important;
-    padding: 7px 50px;
+    padding: 20px 60px;
     opacity: 1;
     box-shadow: 0 0 8px 6px rgba(68, 60, 60, 0.1);
     border-radius: 30px;

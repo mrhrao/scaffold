@@ -70,7 +70,7 @@
                                 <h3 class="loginHeading top">LOGIN</h3>
                                 <h3 class="registerHeading">REGISTER</h3>
                             </div> -->
-                        <div class="form">
+                        <div class="form" style="background-image: url(/assets/images/sign-in-bg.jpg);">
                             <div class="form-toggle"></div>
                             <div class="form-panel one" style="background-image: url(assets/images/sign-in-bg.jpg)">
                                 <div class="headerImage width80">
@@ -121,8 +121,8 @@
                                             </div> -->
                                         <div class="row marginn0">
                                             <div class="col-md-12 btn-col">
-                                                <button type="submit" [disabled]="!signinForm.valid" id="signInBtn" #signInBtn class="btn butn-col">
-                                                    <img src="/assets/images/signInBtn.png">
+                                                <button type="submit" style="background-image: url(/assets/images/signInBtn.png)" [disabled]="!signinForm.valid" id="signInBtn" #signInBtn class="btn butn-col btn-img">
+                                                    <!-- <img src="/assets/images/signInBtn.png">  -->
                                                 </button>
                                             </div>
                                         </div>
@@ -138,7 +138,7 @@
                             </div>
                             <!-- Second form -->
 
-                            <div class="form-panel two">
+                            <div class="form-panel two" style="background-image: url(/assets/images/sign-up-bg.jpg)">
                                 <div class="pull-left">
                                     <img class="left-menu" src="assets/images/icon-sign-up-small.png">
                                 </div>
@@ -244,8 +244,8 @@
                                         <div class="row marginn0">
                                             <div class="col-md-12 btn-col">
 
-                                                <button type="submit" (click)="signup(signupForm)" id="signUpBtn" #signUpBtn class="btn white-col">
-                                                    <img src="/assets/images/sendiconblue.png">
+                                                <button type="submit" style="background-image: url(/assets/images/sendiconblue.png)" (click)="signup(signupForm)" id="signUpBtn" #signUpBtn class="btn white-col btn-img">
+                                                    <!-- <img src="/assets/images/sendiconblue.png"> -->
                                                 </button>
                                             </div>
                                         </div>
@@ -384,8 +384,8 @@
                                                 </div>
                                             </div> -->
                                         <div class="row btn-col">
-                                            <button type="submit" [disabled]="!signupForm.valid" id="signUpBtn" #signUpBtn class="btn white-col">
-                                                <img src="/assets/images/sendiconblue.png">
+                                            <button type="submit" style="background-image: url(/assets/images/sendiconblue.png);" [disabled]="!signupForm.valid" id="signUpBtn" #signUpBtn class="btn white-col btn-img">
+                                                <!-- <img src="/assets/images/sendiconblue.png"> -->
                                             </button>
                                         </div>
                                         <div class="row padding-8">
@@ -445,8 +445,8 @@
                                             </div> -->
                                         <div class="row marginn0">
                                             <div class="col-md-12 btn-col">
-                                                <button type="submit" [disabled]="!signinForm.valid" id="signInBtn" #signInBtn class="btn butn-col">
-                                                    <img src="/assets/images/signInBtn.png">
+                                                <button type="submit" style="background-image: url(/assets/images/signInBtn.png)" [disabled]="!signinForm.valid" id="signInBtn" #signInBtn class="btn butn-col btn-img">
+                                                    <!-- <img src="/assets/images/signInBtn.png"> -->
                                                 </button>
                                             </div>
                                         </div>
@@ -515,8 +515,8 @@
                                     <span *ngIf="mobileNumberInput.errors.minlength">Please enter correct Mobile Number. Allow numeric digit only.</span>
                                 </div> -->
                                 <div class="row btn-col">
-                                    <button [disabled]="!OtpForm.valid" type="submit" class="btn butn-col">
-                                        <img src="/assets/images/signInBtn.png">
+                                    <button [disabled]="!OtpForm.valid" style="background-image: url(/assets/images/signInBtn.png)" type="submit" class="btn butn-col btn-img">
+                                        <!-- <img src="/assets/images/signInBtn.png"> -->
                                     </button>
                                 </div>
                             </form>
@@ -608,7 +608,7 @@
                     </div> -->
                 <div class="form">
                     <div class="form-toggle"></div>
-                    <div class="forget-panel">
+                    <div class="forget-panel" style="background-image: url(/assets/images/sign-up-bg.jpg);">
                         <h5 class="forgetPassHead">Forgot Password ? </h5>
                         <div class="form-content">
                             <form #forgetForm="ngForm" (ngSubmit)="submitforgetPassword(forgetForm)">
@@ -663,8 +663,8 @@
                                     </div>
                                 </ul>
                                 <div class="row btn-col">
-                                    <button [disabled]="!forgetForm.valid" type="submit" class="btn white-col">
-                                        <img src="/assets/images/sendiconblue.png">
+                                    <button [disabled]="!forgetForm.valid" style="background-image: url(/assets/images/sendiconblue.png)" type="submit" class="btn white-col btn-img">
+                                        <!-- <img src="/assets/images/sendiconblue.png"> -->
                                     </button>
                                 </div>
                             </form>
