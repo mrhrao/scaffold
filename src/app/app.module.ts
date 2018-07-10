@@ -32,6 +32,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { AuthenticatedHttpService } from './interceptor/api-interceptor';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import {ToastModule,ToastOptions} from 'ng2-toastr/ng2-toastr';
+import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 
 // import { ChartModule } from 'angular2-highcharts';
 import { appRoutes } from './app.routes';
@@ -97,7 +98,10 @@ import {PaymentService} from './payment/payment.service';
     ReactiveFormsModule
   ],
   providers: [
-    
+    {
+      provide: LocationStrategy,
+      useClass: HashLocationStrategy
+    },
     {provide: ToastOptions, useClass: CustomOption},
     HeaderService,
     VerificationService,
