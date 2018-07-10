@@ -44,14 +44,13 @@ export class KycManagementComponent implements OnInit {
     this.file = fileInput.target.files[0];
      if((this.file.type=="image/jpeg" || this.file.type=="image/png" || this.file.type=="application/pdf") &&(this.file.size<=2097152)){
      this.showNationalityBtn=false;
-           this.input5.nativeElement.src=URL.createObjectURL(this.file);
+       this.input5.nativeElement.src=URL.createObjectURL(this.file);
        this.input4.nativeElement.href= URL.createObjectURL(this.file);
-    
-    }else{
+        }
+        else{
          this.showNationalityBtn=true;
           this.input5.nativeElement.src=URL.createObjectURL('');
-          this.input4.nativeElement.src=URL.createObjectURL('');
-         
+          this.input4.nativeElement.src=URL.createObjectURL('');   
     }
   }
 
@@ -59,15 +58,18 @@ export class KycManagementComponent implements OnInit {
     this.file = fileInput.target.files[0];
      if((this.file.type=="image/jpeg" || this.file.type=="image/png" || this.file.type=="application/pdf") &&(this.file.size<=2097152)){
      this.showNationalityBtn=false;
-           this.input7.nativeElement.src=URL.createObjectURL(this.file);
+       this.input7.nativeElement.src=URL.createObjectURL(this.file);
        this.input6.nativeElement.href= URL.createObjectURL(this.file);
-    
-    }else{
+    }
+    else{
          this.showNationalityBtn=true;
           this.input7.nativeElement.src=URL.createObjectURL('');
           this.input6.nativeElement.src=URL.createObjectURL('');
          
     }
+  }
+
+  uploadFile(){
 
   }
 

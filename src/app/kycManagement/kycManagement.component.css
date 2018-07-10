@@ -292,7 +292,8 @@ h3 {
 }
 .bg-color{
     background-color: #031b4a;
-    position: fixed;
+    /* position: fixed; */
+    position: absolute;
     height: 100%;
 }
 .form-top-center{
